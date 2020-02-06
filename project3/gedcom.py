@@ -24,15 +24,27 @@ tags = {
     'NOTE': 0
 }
 
-# print each line and separate the level, tag, arguments and tell if it is valid
-def check_lines(lines):
-    for line in lines:
-        print('--> ' + line)
+valid = {'0': ['INDI', 'FAM', 'HEAD','TRLR','NOTE'],
+             '1': ['NAME','SEX','BIRT','DEAT','FAMC','FAMS','MARR','HUSB','WIFE','CHIL','DIV'],
+             '2':'DATE'}
 
+
+
+def process(lvl, tag, args):
+        
+    individuals = {}
+
+    families = {}
+
+
+# print each line and separate the level, tag, arguments and tell if it is valid
+def check_valid(lines):
+    for line in lines:
+        
         line = line.split()
         valid = True
 
-        # get level, tag, args, THEN valid
+        # # get level, tag, args, THEN valid
         tag = ''
         lvl = -1
         args = ''
@@ -58,20 +70,29 @@ def check_lines(lines):
         elif valid and not lvl == tags[tag]:
             valid = False
 
+        if valid:
+            process(lvl, tag, args)
         # print result
-        print('<-- ' + str(lvl) + '|' + tag + '|' + (lambda val: 'Y' if val else 'N')(valid) + '|' + args)
+        #print('<-- ' + str(lvl) + '|' + tag + '|' + (lambda val: 'Y' if val else 'N')(valid) + '|' + args)
 
 # entry point
 if len(sys.argv) != 2:
     print("Usage: gedcom.py <file>")
 else:
     buffer = []
+    try:
+        file.open(sys.argv[1])
+        with open(sys.argv[1], 'r') as f:
+            buffer = f.readlines()
+        for i in range(len(buffer)):
+            buffer[i] = buffer[i].rstrip()
+    except FileNotFoundError:
+        print("no file")
+        raise SystemExit
+    
 
     # read input file and strip newlines
-    with open(sys.argv[1], 'r') as f:
-        buffer = f.readlines()
-    for i in range(len(buffer)):
-        buffer[i] = buffer[i].rstrip()
+    
 
     # print file lines and check validity
     check_lines(buffer)
