@@ -31,7 +31,7 @@ valid = {'0': ['INDI', 'FAM', 'HEAD','TRLR','NOTE'],
 
 
 def process(lvl, tag, args):
-        
+
     individuals = {}
 
     families = {}
@@ -81,7 +81,6 @@ if len(sys.argv) != 2:
 else:
     buffer = []
     try:
-        file.open(sys.argv[1])
         with open(sys.argv[1], 'r') as f:
             buffer = f.readlines()
         for i in range(len(buffer)):
