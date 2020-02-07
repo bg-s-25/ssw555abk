@@ -3,7 +3,7 @@
 1 SOUR Family Echo
 2 WWW http://www.familyecho.com/
 1 FILE Griffin Family
-1 DATE 25 JAN 2020
+1 DATE 7 FEB 2020
 1 DEST ANSTFILE
 1 GEDC
 2 VERS 5.5.1
@@ -186,6 +186,8 @@
 1 CHIL @I2@
 1 CHIL @I10@
 1 CHIL @I12@
+1 MARR
+2 DATE 3 MAR 1955
 1 _CURRENT Y
 0 @F5@ FAM
 1 HUSB @I11@

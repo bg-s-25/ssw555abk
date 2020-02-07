@@ -40,14 +40,16 @@ def print_indiv_collection(col):
     Print the table of families
 '''
 def print_fam_collection(col):
-    # 
     t = PrettyTable()
     t.field_names = ["ID", "Married", "Divorced", "Husband ID", "Husband Name", "Wife ID", "Wife Name", "Children"]
     for fam_id in col:
         t.add_row(col[fam_id])
     print(t)
 
-def process(valid_lines):
+'''
+    Read valid lines, add information to individuals/families collections
+'''
+def process_lines(valid_lines):
     individuals = {}
     families = {}
     cur_type, cur_id, prev_tag = [''] * 3
@@ -74,16 +76,15 @@ def process(valid_lines):
                 individuals[cur_id][1] = ' '.join(args)
             elif tag == 'SEX':
                 individuals[cur_id][2] = args[0]
-            elif tag == 'BIRT':
-                prev_tag = 'BIRT'
-            elif tag == 'DEAT':
-                prev_tag = 'DEAT'
+            elif tag == 'BIRT' or tag == 'DEAT':
+                prev_tag = tag
             elif tag == 'DATE' and prev_tag == 'BIRT':
                 individuals[cur_id][3] = str(datetime.datetime.strptime(' '.join(args), '%d %b %Y').date())
                 prev_tag = ''
             elif tag == 'DATE' and prev_tag == 'DEAT':
                 individuals[cur_id][5] = False
                 individuals[cur_id][6] = str(datetime.datetime.strptime(' '.join(args), '%d %b %Y').date())
+                prev_tag = ''
             elif tag == 'FAMC':
                 if individuals[cur_id][7] == '': individuals[cur_id][7] = set()
                 individuals[cur_id][7].add(args[0].strip('@'))
@@ -93,7 +94,23 @@ def process(valid_lines):
 
         elif cur_type == 'FAM':
             # continue processing family
-            pass
+            if tag == 'HUSB':
+                families[cur_id][3] = args[0].strip('@')
+                families[cur_id][4] = individuals[args[0].strip('@')][1]
+            elif tag == 'WIFE':
+                families[cur_id][5] = args[0].strip('@')
+                families[cur_id][6] = individuals[args[0].strip('@')][1]
+            elif tag == 'CHIL':
+                if families[cur_id][7] == '': families[cur_id][7] = set()
+                families[cur_id][7].add(args[0].strip('@'))
+            elif tag == 'MARR' or tag == 'DIV':
+                prev_tag = tag
+            elif tag == 'DATE' and prev_tag == 'MARR':
+                families[cur_id][1] = str(datetime.datetime.strptime(' '.join(args), '%d %b %Y').date())
+                prev_tag = ''
+            elif tag == 'DATE' and prev_tag == 'DIV':
+                families[cur_id][2] = str(datetime.datetime.strptime(' '.join(args), '%d %b %Y').date())
+                prev_tag = ''
     
     # finalize individuals
     for indi in individuals:
@@ -110,9 +127,20 @@ def process(valid_lines):
         if not isinstance(individuals[indi][8], set):
             individuals[indi][8] = 'NA'
 
-    print_indiv_collection(individuals)
+    # finalize families
+    for fam in families:
+        # set NA if not divorced
+        if families[fam][2] == '':
+            families[fam][2] = 'NA'
+        # set NA if no children
+        if not isinstance(individuals[indi][7], set):
+            individuals[indi][7] = 'NA'
 
-# print each line and separate the level, tag, arguments and tell if it is valid
+    return (individuals, families)
+
+'''
+    Check validity of lines and return a list of valid lines
+'''
 def check_valid(lines):
     valid_lines = []
     for line in lines:
@@ -141,12 +169,9 @@ def check_valid(lines):
 
         # if line is valid, add it to valid lines to be processed
         if valid: valid_lines += [[lvl, tag, args]]
-        
-        # print result
-        # print('<-- ' + str(lvl) + '|' + tag + '|' + (lambda val: 'Y' if val else 'N')(valid) + '|' + args)
     
-    # finally, pass the valid lines to be processed
-    process(valid_lines)
+    # return only valid lines, to be processed
+    return valid_lines
 
 # entry point
 if len(sys.argv) != 2:
@@ -164,34 +189,8 @@ else:
         raise SystemExit
 
     # check validity & process lines
-    check_valid(buffer)
+    collections = process_lines(check_valid(buffer))
 
-    '''
-    def familes(famId, block):
-    x.field_names = ["ID", "Married", "Divorced", "Husband ID", "Husband Name", "Wife ID", "Wife Name", "Children"]
-    prevtag = " "
-    for line in block:
-        if tag = "HUSB":
-            #remove @ and store id
-            husbID = "id"
-        elif tag = "WIFE":
-            #remove @ and store id
-            husbID = "id"
-        elif tag = "CHIL":
-            #remove @ and store id
-            husbID = "id"
-
-        #if prevTag is set
-        elif tag = "DATE" and prevtag = "MARR":
-            marrDate = line[2:]
-        elif if tag = "DATE" and prevtag = "DIV":
-            divDate = line[2:]
-
-        # knowing a date will follow, set the prevTag
-        elif tag = "MARR": prevtag = "MARR"
-        elif tag = "DIV": prevtag = "DIV"
-
-        
-    x.add_row([famId, marrDate, divDate, husbID, husbName, wifeID, wifeName, Child])
-
-    '''
+    # print tables
+    print_indiv_collection(collections[0])
+    print_fam_collection(collections[1])
