@@ -32,7 +32,7 @@ def age(birth_date, death_date='NA'):
 def print_indiv_collection(col):
     t = PrettyTable()
     t.field_names = ["ID", "Name", "Gender", "Birthday", "Age", "Alive", "Death", "Child", "Spouse"]
-    for indi_id in col:
+    for indi_id in sorted(col):
         t.add_row(col[indi_id])
     print(t)
 
@@ -42,7 +42,7 @@ def print_indiv_collection(col):
 def print_fam_collection(col):
     t = PrettyTable()
     t.field_names = ["ID", "Married", "Divorced", "Husband ID", "Husband Name", "Wife ID", "Wife Name", "Children"]
-    for fam_id in col:
+    for fam_id in sorted(col):
         t.add_row(col[fam_id])
     print(t)
 
@@ -165,12 +165,14 @@ def check_valid(lines):
                 valid = False
         
         # valid tag/level?
-        if valid and not tag in tags[lvl]: valid = False
+        try:
+            if valid and not tag in tags[lvl]: valid = False
+        except KeyError:
+            continue
 
         # if line is valid, add it to valid lines to be processed
         if valid: valid_lines += [[lvl, tag, args]]
-    
-    # return only valid lines, to be processed
+
     return valid_lines
 
 # entry point
@@ -192,5 +194,7 @@ else:
     collections = process_lines(check_valid(buffer))
 
     # print tables
+    print('Individuals')
     print_indiv_collection(collections[0])
+    print('Families')
     print_fam_collection(collections[1])
