@@ -16,6 +16,14 @@ def print_collection(col):
         x.add_row([indi_id, col[indi_id][1], col[indi_id][2], '', '', '', '', '', ''])
     print(x)
 
+def print_family_collection(col):
+    x = PrettyTable()
+    x.field_names = ["ID", "Married", "Divorced", "Husband ID", "Husband Name", "Wife ID", "Wife Name", "Children"]
+    for indi_id in col:
+        x.add_row([indi_id, col[indi_id][1], col[indi_id][2], '', '', '', '', '', ''])
+    print(x)
+
+
 def process(valid_lines):
     individuals = {}
     families = {}
@@ -31,6 +39,9 @@ def process(valid_lines):
 
         elif lvl == 0 and tag == 'FAM':
             # new family
+            current = ('FAM', args[0].strip('@'))
+            families[current[1]] = [''] * 8
+            families[current[1]][0] = current[1]
             pass
 
         elif current[0] == 'INDI':
@@ -99,3 +110,33 @@ else:
 
     # check validity & process lines
     check_valid(buffer)
+
+    '''
+    def familes(famId, block):
+    x.field_names = ["ID", "Married", "Divorced", "Husband ID", "Husband Name", "Wife ID", "Wife Name", "Children"]
+    prevtag = " "
+    for line in block:
+        if tag = "HUSB":
+            #remove @ and store id
+            husbID = "id"
+        elif tag = "WIFE":
+            #remove @ and store id
+            husbID = "id"
+        elif tag = "CHIL":
+            #remove @ and store id
+            husbID = "id"
+
+        #if prevTag is set
+        elif tag = "DATE" and prevtag = "MARR":
+            marrDate = line[2:]
+        elif if tag = "DATE" and prevtag = "DIV":
+            divDate = line[2:]
+
+        # knowing a date will follow, set the prevTag
+        elif tag = "MARR": prevtag = "MARR"
+        elif tag = "DIV": prevtag = "DIV"
+
+        
+    x.add_row([famId, marrDate, divDate, husbID, husbName, wifeID, wifeName, Child])
+
+    '''
