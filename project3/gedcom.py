@@ -1,61 +1,116 @@
 '''
-    Title  : SSW 555 A - Project 03
+    Title : SSW 555 A - Project 03
+    Date  : 02-10-2020
 '''
 
 import sys
+import datetime
 from prettytable import PrettyTable
 
 tags = {0: ['INDI', 'FAM', 'HEAD', 'TRLR', 'NOTE'],
         1: ['NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'MARR', 'HUSB', 'WIFE', 'CHIL', 'DIV'],
         2: ['DATE']}
 
-def print_collection(col):
-    x = PrettyTable()
-    x.field_names = ["Id", "Name", "Sex", "c", "d", "e", "f", "g", "h"]
-    for indi_id in col:
-        x.add_row([indi_id, col[indi_id][1], col[indi_id][2], '', '', '', '', '', ''])
-    print(x)
+'''
+    Return the age given a birthdate in YYYY-MM-DD format
+'''
+def age(birth_date, death_date='NA'):
+    ymd = birth_date.split('-')
+    dob = datetime.datetime(*[int(x) for x in ymd])
+    ymd = death_date.split('-')
+    doc = datetime.datetime.today() if death_date == 'NA' else datetime.datetime(*[int(x) for x in ymd])
+    yrs = doc.year - dob.year
+    if dob.month > doc.month:
+        yrs -= 1
+    elif dob.month == doc.month and dob.day > doc.day:
+        yrs -= 1
+    return yrs
 
-def print_family_collection(col):
-    x = PrettyTable()
-    x.field_names = ["ID", "Married", "Divorced", "Husband ID", "Husband Name", "Wife ID", "Wife Name", "Children"]
+'''
+    Print the table of individuals
+'''
+def print_indiv_collection(col):
+    t = PrettyTable()
+    t.field_names = ["ID", "Name", "Gender", "Birthday", "Age", "Alive", "Death", "Child", "Spouse"]
     for indi_id in col:
-        x.add_row([indi_id, col[indi_id][1], col[indi_id][2], '', '', '', '', '', ''])
-    print(x)
+        t.add_row(col[indi_id])
+    print(t)
 
+'''
+    Print the table of families
+'''
+def print_fam_collection(col):
+    # 
+    t = PrettyTable()
+    t.field_names = ["ID", "Married", "Divorced", "Husband ID", "Husband Name", "Wife ID", "Wife Name", "Children"]
+    for fam_id in col:
+        t.add_row(col[fam_id])
+    print(t)
 
 def process(valid_lines):
     individuals = {}
     families = {}
-    current = ('', '') # current type of collection & current id, e.g. ('INDI', 'I22')
+    cur_type, cur_id, prev_tag = [''] * 3
 
     for line in valid_lines:
         lvl, tag, args = line
         if lvl == 0 and tag == 'INDI':
             # new individual
-            current = ('INDI', args[0].strip('@'))
-            individuals[current[1]] = [''] * 9
-            individuals[current[1]][0] = current[1]
+            cur_type = 'INDI'
+            cur_id = args[0].strip('@')
+            individuals[cur_id] = [''] * 9
+            individuals[cur_id][0] = cur_id
 
         elif lvl == 0 and tag == 'FAM':
             # new family
-            current = ('FAM', args[0].strip('@'))
-            families[current[1]] = [''] * 8
-            families[current[1]][0] = current[1]
-            pass
+            cur_type = 'FAM'
+            cur_id = args[0].strip('@')
+            families[cur_id] = [''] * 8
+            families[cur_id][0] = cur_id
 
-        elif current[0] == 'INDI':
+        elif cur_type == 'INDI':
             # continue processing individual
             if tag == 'NAME':
-                individuals[current[1]][1] = ' '.join(args)
+                individuals[cur_id][1] = ' '.join(args)
             elif tag == 'SEX':
-                individuals[current[1]][2] = args[0]
+                individuals[cur_id][2] = args[0]
+            elif tag == 'BIRT':
+                prev_tag = 'BIRT'
+            elif tag == 'DEAT':
+                prev_tag = 'DEAT'
+            elif tag == 'DATE' and prev_tag == 'BIRT':
+                individuals[cur_id][3] = str(datetime.datetime.strptime(' '.join(args), '%d %b %Y').date())
+                prev_tag = ''
+            elif tag == 'DATE' and prev_tag == 'DEAT':
+                individuals[cur_id][5] = False
+                individuals[cur_id][6] = str(datetime.datetime.strptime(' '.join(args), '%d %b %Y').date())
+            elif tag == 'FAMC':
+                if individuals[cur_id][7] == '': individuals[cur_id][7] = set()
+                individuals[cur_id][7].add(args[0].strip('@'))
+            elif tag == 'FAMS':
+                if individuals[cur_id][8] == '': individuals[cur_id][8] = set()
+                individuals[cur_id][8].add(args[0].strip('@'))
 
-        elif current[0] == 'FAM':
+        elif cur_type == 'FAM':
             # continue processing family
             pass
-            
-    print_collection(individuals)
+    
+    # finalize individuals
+    for indi in individuals:
+        # set alive
+        if individuals[indi][5] != False:
+            # if not dead, then alive!
+            individuals[indi][5] = True
+            individuals[indi][6] = 'NA'
+        # set ages
+        individuals[indi][4] = age(individuals[indi][3], individuals[indi][6])
+        # set NA if not a child or spouse
+        if not isinstance(individuals[indi][7], set):
+            individuals[indi][7] = 'NA'
+        if not isinstance(individuals[indi][8], set):
+            individuals[indi][8] = 'NA'
+
+    print_indiv_collection(individuals)
 
 # print each line and separate the level, tag, arguments and tell if it is valid
 def check_valid(lines):
@@ -105,7 +160,7 @@ else:
         for i in range(len(buffer)):
             buffer[i] = buffer[i].rstrip()
     except FileNotFoundError:
-        print("no file")
+        print("Error: Cannot find input file")
         raise SystemExit
 
     # check validity & process lines
