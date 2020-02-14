@@ -141,7 +141,7 @@ def process_lines(valid_lines):
 '''
     Check validity of lines and return a list of valid lines
 '''
-def check_valid(lines):
+def get_valid(lines):
     valid_lines = []
     for line in lines:
         line = line.split()
@@ -175,26 +175,30 @@ def check_valid(lines):
 
     return valid_lines
 
-# entry point
-if len(sys.argv) != 2:
-    print("Usage: gedcom.py <file>")
-else:
+def open_file(filename):
     buffer = []
     # read input file and strip newlines
     try:
-        with open(sys.argv[1], 'r') as f:
+        with open(filename, 'r') as f:
             buffer = f.readlines()
         for i in range(len(buffer)):
             buffer[i] = buffer[i].rstrip()
     except FileNotFoundError:
         print("Error: Cannot find input file")
         raise SystemExit
+    return buffer
 
-    # check validity & process lines
-    collections = process_lines(check_valid(buffer))
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print("Usage: gedcom.py <file>")
+    else:
+        buffer = open_file(sys.argv[1])
+        
+        # check validity & process lines
+        collections = process_lines(get_valid(buffer))
 
-    # print tables
-    print('Individuals')
-    print_indiv_collection(collections[0])
-    print('Families')
-    print_fam_collection(collections[1])
+        # print tables
+        print('Individuals')
+        print_indiv_collection(collections[0])
+        print('Families')
+        print_fam_collection(collections[1])

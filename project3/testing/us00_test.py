@@ -1,12 +1,12 @@
-# This is a dummy file for the teser
+# This is a dummy file for the tester
 
 import unittest
-import US00
+import us00
 
 class Tests(unittest.TestCase):
 
     def test01(self):
-        self.assertEqual(US00.do_something(), 'something')
+        self.assertEqual(us00.do_something(), 'something')
 
 if __name__ == '__main__':
     # Run tests
