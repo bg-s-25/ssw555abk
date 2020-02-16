@@ -1,16 +1,18 @@
 # This module runs automated tests for a selected user story
 
-# Filename formats: source files = usXX.py; tests = usXX_test.py; ged files = usXX.ged
+# Filename formats: source files = usXX.py; tests = usXX_test.py; ged files = usXX_XX.ged
 
 import sys
-from prettytable import PrettyTable
 import glob
+from prettytable import PrettyTable
 sys.path.insert(0, '../')
 import gedcom
 
-def test(testfile):
+def run_tests(testfile):
     # run tests found in test file
-    pass
+    mod = __import__('us21_test')
+    func = getattr(mod, 'tester')
+    func() # runs 0 tests, run tests via us21_test
 
 def prompt_for_test():
     testfiles = glob.glob('us*_test.py')
@@ -27,7 +29,7 @@ def prompt_for_test():
     while True:
         us = input("\nTest which user story? ('quit' to quit) -> ")
         if us in stories:
-            test(us + '_test.py')
+            run_tests(us + '_test.py')
         elif us == 'quit':
             break
         else:

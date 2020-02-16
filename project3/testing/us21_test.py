@@ -6,11 +6,18 @@ import gedcom
 
 class Tests(unittest.TestCase):
 
-    ged_file_01 = 'us21.ged'
-    indivs, fams = gedcom.process_lines(gedcom.get_valid(gedcom.open_file(ged_file_01)))
+    gedfiles = ['us21_01.ged', 'us21_02.ged']
 
-    def test01(self):
-        self.assertEqual(us21.verify_correct_roles(self.indivs, self.fams)[0], False)
+    def test01(self): # correct roles
+        indivs, fams = gedcom.process_lines(gedcom.get_valid(gedcom.open_file(self.gedfiles[0])))
+        self.assertEqual(us21.verify_correct_roles(indivs, fams)[0], True)
+
+    def test02(self): # incorrect roles
+        indivs, fams = gedcom.process_lines(gedcom.get_valid(gedcom.open_file(self.gedfiles[1])))
+        self.assertEqual(us21.verify_correct_roles(indivs, fams)[0], False)
+
+def tester():
+    unittest.main()
 
 if __name__ == '__main__':
     # Run tests
