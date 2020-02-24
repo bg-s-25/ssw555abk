@@ -1,8 +1,3 @@
-'''
-    Title : SSW 555 A - Project 03
-    Date  : 02-10-2020
-'''
-
 import sys
 import datetime
 from prettytable import PrettyTable
@@ -10,6 +5,13 @@ from prettytable import PrettyTable
 tags = {0: ['INDI', 'FAM', 'HEAD', 'TRLR', 'NOTE'],
         1: ['NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'MARR', 'HUSB', 'WIFE', 'CHIL', 'DIV'],
         2: ['DATE']}
+indiv_ids, fam_ids = [], []
+
+'''
+    Return the raw lists of ids from parsing individuals & families
+'''
+def id_lists():
+    return (indiv_ids, fam_ids)
 
 '''
     Return the age given a birthdate in YYYY-MM-DD format
@@ -53,6 +55,7 @@ def process_lines(valid_lines):
     individuals = {}
     families = {}
     cur_type, cur_id, prev_tag = [''] * 3
+    indiv_ids, fam_ids = [], []
 
     for line in valid_lines:
         lvl, tag, args = line
@@ -62,6 +65,7 @@ def process_lines(valid_lines):
             cur_id = args[0].strip('@')
             individuals[cur_id] = [''] * 9
             individuals[cur_id][0] = cur_id
+            indiv_ids += [cur_id.upper()]
 
         elif lvl == 0 and tag == 'FAM':
             # new family
@@ -69,6 +73,7 @@ def process_lines(valid_lines):
             cur_id = args[0].strip('@')
             families[cur_id] = [''] * 8
             families[cur_id][0] = cur_id
+            fam_ids += [cur_id.upper()]
 
         elif cur_type == 'INDI':
             # continue processing individual
