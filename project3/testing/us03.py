@@ -10,7 +10,28 @@ import gedcom
 '''
 
 # bbd = birth before death
-def bbd(pers, fam, pers_id, fam_id):
-    for b, m in zip(pers, fam):
-        if b >= m: 
-            return (False, "ERROR: FAMILY: US02")
+def bbd(person):
+    pers, births, deaths = listbirthsanddeaths(person)
+    for i in range(len(pers)):
+        '''
+        Death can either be 'NA' for people who are alive
+        or 'xxxx-xx-xx' for people who died
+        Birth can either be '' for people who did not put birth
+        or 'xxxx-xx-xx' for people who put in their info and are born
+        Returns false if birth info is not put in or death has a 
+        date before the birth date
+        '''
+        if (deaths[i] != 'NA' and births[i] >= deaths[i]) or births[i] == '': 
+            return (False, "ERROR: FAMILY: US03: {}: Died {} before born {}".format(pers[i],deaths[i],births[i]))
+    return (True, '')
+
+# lists ids, births, deaths in 3 separate lists
+def listbirthsanddeaths(person):
+    individuals = []
+    birth_list = []
+    death_list = []
+    for onepers in person.values():
+        individuals += [onepers[0]]
+        birth_list += [onepers[3]]
+        death_list += [onepers[6]]
+    return individuals, birth_list, death_list
