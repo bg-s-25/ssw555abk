@@ -8,15 +8,13 @@ class Tests(unittest.TestCase):
 
     gedfiles = ['us29_01.ged']
 
-    def test01(self): # correct roles
-        #isn't it check_valid
-        #can't just call collections[0] ??
-        indivs = gedcom.process_lines(gedcom.get_valid(gedcom.open_file(self.gedfiles[0])))
-        self.assertEqual(us29.listdeceased(indivs)[0], True)
-        
-        #indivs, fams = gedcom.process_lines(gedcom.get_valid(gedcom.open_file(self.gedfiles[0])))
-        #self.assertEqual(us30.listmarried(indivs, fams)[0], True)
-
+    def test01(self): 
+        indivs = gedcom.tester(self.gedfiles[0])[0]
+        test_file = open(us29.listdeceased(indivs), "r")
+        result_file = open("us29_01.txt", "r")
+        self.assertEqual(test_file.read(), result_file.read())
+        test_file.close()
+        result_file.close()
 
 def tester():
     unittest.main()
