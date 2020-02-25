@@ -9,7 +9,7 @@ import gedcom
 '''
 
 # bbm = birth before marriage
-def bbm(births, marriages):
-    for b, m in zip(births, marriages):
+def bbm(pers, fam, pers_id, fam_id):
+    for b, m in zip(pers, fam):
         if b >= m: 
             return (False, "ERROR: FAMILY: US02")

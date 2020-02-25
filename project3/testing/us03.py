@@ -10,7 +10,7 @@ import gedcom
 '''
 
 # bbd = birth before death
-def bbd(births, deaths):
-    for b, m in zip(births, deaths):
+def bbd(pers, fam, pers_id, fam_id):
+    for b, m in zip(pers, fam):
         if b >= m: 
             return (False, "ERROR: FAMILY: US02")

@@ -40,7 +40,11 @@ def print_fam_collection(col):
     for fam_id in sorted(col):
         t.add_row(col[fam_id])
     print(t)
-
+'''
+    Tester function for gedcom file
+'''
+def tester(file):
+    return process_lines(get_valid(open_file(file)))
 '''
     Read valid lines, add information to individuals/families collections
 '''

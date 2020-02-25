@@ -6,11 +6,11 @@ import gedcom
 
 class Tests(unittest.TestCase):
 
-    gedfiles = []
+    gedfiles = ['original.ged']
 
     def test01(self):
-        return True
-
+        individuals, families, indiv_ids, fam_ids = gedcom.tester(self.gedfiles[0])
+        self.assertEqual(us02.bbm(individuals, families, indiv_ids, fam_ids), True)
 
 
 def tester():
