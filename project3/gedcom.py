@@ -5,13 +5,6 @@ from prettytable import PrettyTable
 tags = {0: ['INDI', 'FAM', 'HEAD', 'TRLR', 'NOTE'],
         1: ['NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'MARR', 'HUSB', 'WIFE', 'CHIL', 'DIV'],
         2: ['DATE']}
-indiv_ids, fam_ids = [], []
-
-'''
-    Return the raw lists of ids from parsing individuals & families
-'''
-def id_lists():
-    return (indiv_ids, fam_ids)
 
 '''
     Return the age given a birthdate in YYYY-MM-DD format
@@ -141,7 +134,7 @@ def process_lines(valid_lines):
         if not isinstance(individuals[indi][7], set):
             individuals[indi][7] = 'NA'
 
-    return (individuals, families)
+    return (individuals, families, indiv_ids, fam_ids)
 
 '''
     Check validity of lines and return a list of valid lines

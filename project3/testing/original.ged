@@ -1,11 +1,11 @@
 0 HEAD
-0 NOTE Test for US21
+0 NOTE Original ged
 0 @I01@ INDI
 1 NAME Peter /Griffin/
 2 GIVN Peter
 2 SURN Griffin
 2 _MARNM Griffin
-1 SEX F
+1 SEX M
 1 BIRT
 2 DATE 22 JUN 1955
 1 FAMS @F01@
