@@ -9,8 +9,8 @@ class Tests(unittest.TestCase):
     gedfiles = ['original.ged']
 
     def test01(self):
-        individuals, families, indiv_ids, fam_ids = gedcom.tester(self.gedfiles[0])
-        self.assertEqual(us02.bbm(individuals, families, indiv_ids, fam_ids), True)
+        individuals, families = gedcom.tester(self.gedfiles[0])[:2]
+        self.assertEqual(us02.bbm(individuals, families)[0], True)
 
 
 def tester():
