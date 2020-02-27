@@ -6,7 +6,7 @@ import gedcom
 from prettytable import PrettyTable
 
 '''
-    Given all the individuals in the family, list all married individuals
+    Given all the individuals in the family, list all living married individuals
 '''
 
 def print_married(col):
@@ -16,14 +16,17 @@ def print_married(col):
         t.add_row(col[married_id])
     print(t)
 
-def listmarried(fams):
+def listmarried(indivs, fams):
     married = {}
     for fam_id in fams: #make sure not dead
         if (fams[fam_id][1] != "NA") and (fams[fam_id][2] == "NA"): #married(1) and not divorced(2)
-            married[fam_id] = [''] * 4
-            married[fam_id][0] = fam_id #famid 
-            married[fam_id][1] = fams[fam_id][6] #wife name
-            married[fam_id][2] = fams[fam_id][4] #husb name
-            married[fam_id][3] = fams[fam_id][1] #marriage date
+            husb_id = fams[fam_id][3]     #gets wife indivs id 
+            wife_id =fams[fam_id][5]      #gets husb indivs id
+            if (indivs[wife_id][6] == 'NA' and indivs[husb_id][6] == 'NA'): #makes sure both husband and wife are alive
+                married[fam_id] = [''] * 4
+                married[fam_id][0] = fam_id #famid 
+                married[fam_id][1] = fams[fam_id][6] #wife name
+                married[fam_id][2] = fams[fam_id][4] #husb name
+                married[fam_id][3] = fams[fam_id][1] #marriage date
     print_married(married)
     return True

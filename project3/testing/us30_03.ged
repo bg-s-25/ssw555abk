@@ -2,7 +2,7 @@
 1 SOUR Family Echo
 2 WWW http://www.familyecho.com/
 1 FILE us30_1
-1 DATE 25 FEB 2020
+1 DATE 27 FEB 2020
 1 DEST ANSTFILE
 1 GEDC
 2 VERS 5.5.1
@@ -60,8 +60,6 @@
 1 SEX M
 1 BIRT
 2 DATE 9 MAY 1927
-1 DEAT Y
-2 DATE 18 JUL 2007
 1 FAMS @F4@
 0 @I6@ INDI
 1 NAME Carter /Pewterschmidt/
@@ -83,7 +81,6 @@
 1 BIRT
 2 DATE 18 MAR 1935
 1 FAMS @F3@
-1 FAMS @F5@
 0 @I8@ INDI
 1 NAME Chris /Griffin/
 2 GIVN Chris
@@ -119,7 +116,7 @@
 1 SEX F
 1 BIRT
 2 DATE 11 JUL 1959
-1 FAMS @F6@
+1 FAMS @F5@
 1 FAMC @F3@
 0 @I12@ INDI
 1 NAME Adam /West/
@@ -129,7 +126,7 @@
 1 SEX M
 1 BIRT
 2 DATE 5 MAY 1960
-1 FAMS @F6@
+1 FAMS @F5@
 0 @I13@ INDI
 1 NAME Patrick /Pewterschmidt/
 2 GIVN Patrick
@@ -147,7 +144,7 @@
 1 SEX F
 1 BIRT
 2 DATE 19 SEP 2003
-1 FAMC @F6@
+1 FAMC @F5@
 0 @I15@ INDI
 1 NAME Karen /Griffin/
 2 GIVN Karen
@@ -157,13 +154,6 @@
 1 BIRT
 2 DATE 28 JAN 1962
 1 FAMC @F4@
-0 @I16@ INDI
-1 NAME Mike /Hebrewberg/
-2 GIVN Mike
-2 SURN Hebrewberg
-2 _MARNM Hebrewberg
-1 SEX M
-1 FAMS @F5@
 0 @F1@ FAM
 1 HUSB @I1@
 1 WIFE @I2@
@@ -201,10 +191,6 @@
 2 TYPE Ending
 1 _CURRENT N
 0 @F5@ FAM
-1 HUSB @I16@
-1 WIFE @I7@
-1 _CURRENT Y
-0 @F6@ FAM
 1 HUSB @I12@
 1 WIFE @I11@
 1 CHIL @I14@
