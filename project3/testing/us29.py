@@ -4,6 +4,7 @@ import sys
 sys.path.insert(0, '../')
 import gedcom
 from prettytable import PrettyTable
+
 '''
     Given all the individuals in the family, list all deceased individuals
 '''
@@ -20,6 +21,18 @@ def print_deceased(col):
     print(t)
     file.close()
     return 'output.txt'
+ 
+def compare(file1, file2):
+    file1 = open(file1,'r')
+    file2 = open(file2,'r')
+    if (file1.read() == file2.read()):
+        file1.close()
+        file2.close()
+        return (True, "")
+    else:
+        file1.close()
+        file2.close()
+        return (False, "ERROR: INDIVIDUAL: US29: {}: Did not properly list all dead individuals")
 
 
 def listdeceased(indivs):

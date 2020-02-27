@@ -5,16 +5,20 @@ sys.path.insert(0, '../')
 import gedcom
 
 class Tests(unittest.TestCase):
-
     gedfiles = ['us29_01.ged']
+    txtfiles = ['us29_01.txt', 'us29_01.1.txt']
 
     def test01(self): 
         indivs = gedcom.tester(self.gedfiles[0])[0]
-        test_file = open(us29.listdeceased(indivs), "r")
-        result_file = open("us29_01.txt", "r")
-        self.assertEqual(test_file.read(), result_file.read())
-        test_file.close()
-        result_file.close()
+        test_file = us29.listdeceased(indivs)
+        result_file = self.txtfiles[0]
+        self.assertEqual(us29.compare(test_file, result_file)[0], True)
+
+    def test02(self): 
+        indivs = gedcom.tester(self.gedfiles[0])[0]
+        test_file = us29.listdeceased(indivs)
+        result_file = self.txtfiles[1]
+        self.assertEqual(us29.compare(test_file, result_file)[0], False)
 
 def tester():
     unittest.main()
