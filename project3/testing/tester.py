@@ -1,4 +1,4 @@
-# This module runs automated tests for a selected user story
+# This module runs the tests and reports test results
 
 # Filename formats: source files = usXX.py; tests = usXX_test.py; ged files = usXX_XX.ged
 
@@ -9,28 +9,40 @@ from prettytable import PrettyTable
 sys.path.insert(0, '../')
 import gedcom
 import us02_test
-# import test_us03
+import us03_test
+import us21_test
+import us22_test
 from us02_test import Tests as us02tests
-# from us03_test import Tests as us03tests
-# import us21_test
-# from us21_test import Tests as us21tests
-# import us22_test
-# from us22_test import Tests as us22tests
+from us03_test import Tests as us03tests
+from us21_test import Tests as us21tests
+from us22_test import Tests as us22tests
 
+'''
+    Print the errors produced by tests
+'''
 def report_test_results(results):
-    print(results)
-    # for r in results:
-    #     if not r[0]: # test failed
-    #         print(r[1]) # print error message
+    errs = [x for sublst in results for x in sublst]
+    errs = sorted(list(set(errs)))
+    for err in errs:
+        print(err)
 
+'''
+    Run tests for each user story and aggregate error messages
+'''
 def get_all_test_results():
     results = []
 
     us02_test.unittest.main(exit=False)
     results += us02_test.test_results()
 
-    # test_us03.unittest.main(exit=False)
-    # results += test_us03.test_results()
+    us03_test.unittest.main(exit=False)
+    results += us03_test.test_results()
+
+    us21_test.unittest.main(exit=False)
+    results += us21_test.test_results()
+
+    us22_test.unittest.main(exit=False)
+    results += us22_test.test_results()
 
     return results
 
@@ -49,10 +61,8 @@ def prompt_for_test():
     while True:
         us = input("\nTest which user story? ('all' to do all, quit' to quit) -> ")
         if us in stories:
-            # run_tests(us + '_test.py')
             print("For now, only testing 'all' works")
         elif us == 'all':
-            # get_all_test_results()
             report_test_results(get_all_test_results())
         elif us == 'quit':
             break

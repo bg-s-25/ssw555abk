@@ -13,19 +13,19 @@ class Tests(unittest.TestCase):
         indivs, fams = gedcom.process_lines(gedcom.get_valid(gedcom.open_file(self.gedfiles[0])))[2:]
         result = us22.verify_unique_ids(indivs, fams)
         self.results += [result]
-        self.assertEqual(result[0], True)
+        self.assertEqual(len(result) == 0, True)
 
     def test02(self): # ged contains repeated individual id
         indivs, fams = gedcom.process_lines(gedcom.get_valid(gedcom.open_file(self.gedfiles[1])))[2:]
         result = us22.verify_unique_ids(indivs, fams)
         self.results += [result]
-        self.assertEqual(result[0], False)
+        self.assertEqual(len(result) == 0, False)
 
     def test03(self): # ged contains repeated individual id
         indivs, fams = gedcom.process_lines(gedcom.get_valid(gedcom.open_file(self.gedfiles[2])))[2:]
         result = us22.verify_unique_ids(indivs, fams)
         self.results += [result]
-        self.assertEqual(result[0], False)
+        self.assertEqual(len(result) == 0, False)
 
 def test_results():
     return Tests.results
