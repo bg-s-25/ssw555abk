@@ -9,9 +9,9 @@ from prettytable import PrettyTable
 sys.path.insert(0, '../')
 import gedcom
 import us02_test
+# import test_us03
 from us02_test import Tests as us02tests
-import us03_test
-from us03_test import Tests as us03tests
+# from us03_test import Tests as us03tests
 # import us21_test
 # from us21_test import Tests as us21tests
 # import us22_test
@@ -29,9 +29,8 @@ def get_all_test_results():
     us02_test.unittest.main(exit=False)
     results += us02_test.test_results()
 
-    us03_test.unittest.main(exit=False)
-    results += us03_test.test_results()
-    # print(results)
+    # test_us03.unittest.main(exit=False)
+    # results += test_us03.test_results()
 
     return results
 
