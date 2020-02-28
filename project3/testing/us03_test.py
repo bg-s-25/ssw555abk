@@ -7,8 +7,7 @@ import gedcom
 
 class Tests(unittest.TestCase):
 
-    gedfiles = ['original.ged']
-
+    gedfiles = ['original.ged','us03_02.ged']
     results = []
 
     def test01(self):
@@ -16,6 +15,13 @@ class Tests(unittest.TestCase):
         result = us03.bbd(individuals)
         self.results += [result]
         self.assertEqual(len(result) == 0, True)
+
+    def test02(self):
+        individuals = gedcom.tester(self.gedfiles[1])[0]
+        result = us03.bbd(individuals)
+        self.results += [result]
+        print(self.results)
+        self.assertEqual(len(result) == 0, False)
 
 def test_results():
     return Tests.results
