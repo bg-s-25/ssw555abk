@@ -4,13 +4,13 @@ import sys
 sys.path.insert(0, '../')
 import gedcom
 
-
 '''
     Given list of birth dates and death dates of individuals, ensure that all people are born before death
 '''
 
 # bbd = birth before death
 def bbd(person):
+    errors = []
     pers, births, deaths = listbirthsanddeaths(person)
     for i in range(len(pers)):
         '''
@@ -22,8 +22,8 @@ def bbd(person):
         date before the birth date
         '''
         if (deaths[i] != 'NA' and births[i] >= deaths[i]) or births[i] == '': 
-            return (False, "ERROR: FAMILY: US03: {}: Died {} before born {}".format(pers[i],deaths[i],births[i]))
-    return (True, '')
+            errors += ["ERROR: INDIVIDUAL: US03: {}: Died {} before born {}".format(pers[i],deaths[i],births[i])]
+    return errors
 
 # lists ids, births, deaths in 3 separate lists
 def listbirthsanddeaths(person):
