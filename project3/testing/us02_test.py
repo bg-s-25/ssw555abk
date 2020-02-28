@@ -8,14 +8,17 @@ class Tests(unittest.TestCase):
 
     gedfiles = ['original.ged']
 
+    results = []
+
     def test01(self):
         individuals, families = gedcom.tester(self.gedfiles[0])[:2]
-        print(us02.bbm(individuals,families))
-        self.assertEqual(us02.bbm(individuals, families)[0], True)
+        result = us02.bbm(individuals, families)
+        self.results += [result]
+        self.assertEqual(len(result) == 0, True)
 
 
-def tester():
-    unittest.main()
+def test_results():
+    return Tests.results
 
 if __name__ == '__main__':
     # Run tests
