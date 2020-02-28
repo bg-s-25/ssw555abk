@@ -4,15 +4,31 @@
 
 import sys
 import glob
+import unittest
 from prettytable import PrettyTable
 sys.path.insert(0, '../')
 import gedcom
+import us21_test
+from us21_test import Tests as us21tests
+import us22_test
+from us22_test import Tests as us22tests
 
-def run_tests(testfile):
-    # run tests found in test file
-    mod = __import__('us21_test')
-    func = getattr(mod, 'tester')
-    func() # runs 0 tests, run tests via us21_test
+def report_test_results(results):
+    for r in results:
+        if not r[0]: # test failed
+            print(r[1]) # print error message
+
+def get_all_test_results():
+    results = []
+
+    us21_test.unittest.main(exit=False)
+    results += us21_test.test_results()
+
+    us22_test.unittest.main(exit=False)
+    results += us22_test.test_results()
+    # print(results)
+
+    return results
 
 def prompt_for_test():
     testfiles = glob.glob('us*_test.py')
@@ -27,9 +43,13 @@ def prompt_for_test():
     print(t)
 
     while True:
-        us = input("\nTest which user story? ('quit' to quit) -> ")
+        us = input("\nTest which user story? ('all' to do all, quit' to quit) -> ")
         if us in stories:
-            run_tests(us + '_test.py')
+            # run_tests(us + '_test.py')
+            print("For now, only testing 'all' works")
+        elif us == 'all':
+            # get_all_test_results()
+            report_test_results(get_all_test_results())
         elif us == 'quit':
             break
         else:
