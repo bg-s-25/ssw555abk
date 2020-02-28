@@ -24,7 +24,7 @@ def bbd(person):
         '''
         if (deaths[i] != 'NA' and births[i] >= deaths[i]) or births[i] == '': 
             errors += ["ERROR: FAMILY: US03: {}: Died {} before born {}".format(pers[i],deaths[i],births[i])]
-    return [False] + errors if len(errors) > 0 else [True] + errors
+    return errors
 
 # lists ids, births, deaths in 3 separate lists
 def listbirthsanddeaths(person):
