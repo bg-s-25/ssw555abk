@@ -12,17 +12,20 @@ import us02_test
 import us03_test
 import us21_test
 import us22_test
+import us29_test
+import us30_test
 from us02_test import Tests as us02tests
 from us03_test import Tests as us03tests
 from us21_test import Tests as us21tests
 from us22_test import Tests as us22tests
+from us29_test import Tests as us29tests
+from us30_test import Tests as us30tests
 
 '''
     Print the errors produced by tests
 '''
 def report_test_results(results):
-    errs = [x for sublst in results for x in sublst]
-    errs = sorted(list(set(errs)))
+    errs = list(set(results))
     for err in errs:
         print(err)
 
@@ -43,6 +46,12 @@ def get_all_test_results():
 
     us22_test.unittest.main(exit=False)
     results += us22_test.test_results()
+
+    us29_test.unittest.main(exit=False)
+    results += us29_test.test_results()
+
+    us30_test.unittest.main(exit=False)
+    results += us30_test.test_results()
 
     return results
 

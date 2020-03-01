@@ -12,19 +12,19 @@ class Tests(unittest.TestCase):
     def test01(self): # correct roles
         indivs, fams = gedcom.process_lines(gedcom.get_valid(gedcom.open_file(self.gedfiles[0])))[:2]
         result = us21.verify_correct_roles(indivs, fams)
-        self.results += [result]
+        self.results += result
         self.assertEqual(len(result) == 0, True)
 
     def test02(self): # incorrect roles
         indivs, fams = gedcom.process_lines(gedcom.get_valid(gedcom.open_file(self.gedfiles[1])))[:2]
         result = us21.verify_correct_roles(indivs, fams)
-        self.results += [result]
+        self.results += result
         self.assertEqual(len(result) == 0, False)
 
     def test03(self): # incorrect roles
         indivs, fams = gedcom.process_lines(gedcom.get_valid(gedcom.open_file(self.gedfiles[2])))[:2]
         result = us21.verify_correct_roles(indivs, fams)
-        self.results += [result]
+        self.results += result
         self.assertEqual(len(result) == 0, False)
 
 def test_results():
