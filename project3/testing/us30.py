@@ -28,7 +28,7 @@ def compare(file1, file2):
     file1 = open(file1,'r')
     file2 = open(file2,'r')
     if (file1.read() != file2.read()):
-        errors += ["ERROR: INDIVIDUAL: US30: {}: Did not properly list all living married individuals"]
+        errors += ["ERROR: INDIVIDUAL: US30: Did not properly list all living married individuals"]
     file1.close()
     file2.close()
     return errors
