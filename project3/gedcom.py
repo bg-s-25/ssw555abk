@@ -1,6 +1,13 @@
 import sys
 import datetime
 from prettytable import PrettyTable
+sys.path.append('./testing')
+import us02
+import us03
+import us21
+import us22
+import us29
+import us30
 
 tags = {0: ['INDI', 'FAM', 'HEAD', 'TRLR', 'NOTE'],
         1: ['NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'MARR', 'HUSB', 'WIFE', 'CHIL', 'DIV'],
@@ -40,11 +47,24 @@ def print_fam_collection(col):
     for fam_id in sorted(col):
         t.add_row(col[fam_id])
     print(t)
+
 '''
     Tester function for gedcom file
 '''
 def tester(file):
     return process_lines(get_valid(open_file(file)))
+
+'''
+    Collect errors using individuals and families dictionaries/lists
+'''
+def get_errors(indivs, fams, indivsLst, famsLst):
+    errors = []
+    errors += us02.bbm(indivs, fams)
+    errors += us03.bbd(indivs)
+    errors += us21.verify_correct_roles(indivs, fams)
+    errors += us22.verify_unique_ids(indivsLst, famsLst)
+    return errors
+
 '''
     Read valid lines, add information to individuals/families collections
 '''
@@ -199,8 +219,21 @@ if __name__ == '__main__':
         # check validity & process lines
         collections = process_lines(get_valid(buffer))
 
+        # collect errors
+        errors = list(set(get_errors(*collections)))
+
         # print tables
         print('Individuals')
         print_indiv_collection(collections[0])
         print('Families')
         print_fam_collection(collections[1])
+
+        # print errors
+        print("")
+        for err in errors: print(err)
+
+        # US29 & US30 (lists)
+        print('List of deceased individuals:')
+        us29.listdeceased(collections[0])
+        print('List of living married individuals:')
+        us30.listmarried(collections[0], collections[1])

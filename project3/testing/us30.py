@@ -1,4 +1,4 @@
-# US30: Printing a list of deceased family members
+# US30: Printing a list of living married family members
 
 import sys
 sys.path.insert(0, '../')
