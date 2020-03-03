@@ -11,7 +11,7 @@ class Tests(unittest.TestCase):
     results = []
 
     def test01(self): 
-        indivs, fams = gedcom.tester(self.gedfiles[0])[:2]
+        indivs, fams = main_parser.tester(self.gedfiles[0])[:2]
         test_file = us30.listmarried(indivs, fams)
         result_file = self.txtfiles[0]
         result = us30.compare(test_file, result_file)
@@ -19,7 +19,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(len(result) == 0, True)
     
     def test02(self): 
-        indivs, fams = gedcom.tester(self.gedfiles[1])[:2]
+        indivs, fams = main_parser.tester(self.gedfiles[1])[:2]
         test_file = us30.listmarried(indivs, fams)
         result_file = self.txtfiles[1]
         result = us30.compare(test_file, result_file)

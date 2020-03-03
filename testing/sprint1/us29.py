@@ -40,7 +40,7 @@ def listdeceased(indivs):
             deceased[indivs_id][0] = indivs_id #id
             deceased[indivs_id][1] = indivs[indivs_id][1] #name
             deceased[indivs_id][2] = indivs[indivs_id][3] #birthday
-            deceased[indivs_id][3] = gedcom.age(indivs[indivs_id][3], indivs[indivs_id][6]) #age
+            deceased[indivs_id][3] = main_parser.age(indivs[indivs_id][3], indivs[indivs_id][6]) #age
             deceased[indivs_id][4] = indivs[indivs_id][6] #death
     file = print_deceased(deceased)
     return file

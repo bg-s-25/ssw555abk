@@ -10,7 +10,7 @@ class Tests(unittest.TestCase):
     results = []
 
     def test01(self):
-        indivs = gedcom.tester(self.gedfiles[0])[0]
+        indivs = main_parser.tester(self.gedfiles[0])[0]
         test_file = us29.listdeceased(indivs)
         result_file = self.txtfiles[0]
         result = us29.compare(test_file, result_file)
@@ -18,7 +18,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(len(result) == 0, True)
 
     def test02(self):
-        indivs = gedcom.tester(self.gedfiles[0])[0]
+        indivs = main_parser.tester(self.gedfiles[0])[0]
         test_file = us29.listdeceased(indivs)
         result_file = self.txtfiles[1]
         result = us29.compare(test_file, result_file)

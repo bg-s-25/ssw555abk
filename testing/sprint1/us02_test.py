@@ -10,13 +10,13 @@ class Tests(unittest.TestCase):
     results = []
 
     def test01(self):
-        individuals, families = gedcom.tester(self.gedfiles[0])[:2]
+        individuals, families = main_parser.tester(self.gedfiles[0])[:2]
         result = us02.bbm(individuals, families)
         self.results += result
         self.assertEqual(len(result) == 0, True)
 
     def test02(self):
-        individuals, families = gedcom.tester(self.gedfiles[1])[:2]
+        individuals, families = main_parser.tester(self.gedfiles[1])[:2]
         result = us02.bbm(individuals, families)
         self.results += result
         self.assertEqual(len(result) == 0, False)
