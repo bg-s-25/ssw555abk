@@ -5,7 +5,7 @@ Individuals
 | I01 |     Peter /Griffin/     |   M    | 1955-06-22 |  64 |  True |     NA     | {'F02'} |    {'F01'}     |
 | I02 |      Lois /Griffin/     |   F    | 1998-02-18 |  22 |  True |     NA     | {'F03'} |    {'F01'}     |
 | I03 |   Mickey /McFinnigan/   |   M    | 1933-09-03 |  86 |  True |     NA     |    NA   |    {'F02'}     |
-| I04 |     Thelma /Griffin/    |   F    | 1935-02-14 |  82 | False | 2017-11-04 |    NA   | {'F04', 'F02'} |
+| I04 |     Thelma /Griffin/    |   F    | 1935-02-14 |  82 | False | 2017-11-04 |    NA   | {'F02', 'F04'} |
 | I05 |  Carter /Pewterschmidt/ |   M    | 1933-06-26 |  86 |  True |     NA     |    NA   |    {'F03'}     |
 | I06 |   Barbara /Hebrewberg/  |   M    | 1935-03-18 |  84 |  True |     NA     |    NA   |    {'F03'}     |
 | I07 |     Chris /Griffin/     |   M    | 1997-02-08 |  23 |  True |     NA     | {'F01'} |       NA       |
@@ -22,26 +22,26 @@ Families
 +-----+------------+------------+------------+------------------------+---------+----------------------+-----------------------+
 |  ID |  Married   |  Divorced  | Husband ID |      Husband Name      | Wife ID |      Wife Name       |        Children       |
 +-----+------------+------------+------------+------------------------+---------+----------------------+-----------------------+
-| F01 | 1993-05-14 |     NA     |    I01     |    Peter /Griffin/     |   I02   |    Lois /Griffin/    | {'I08', 'I09', 'I07'} |
+| F01 | 1993-05-14 |     NA     |    I01     |    Peter /Griffin/     |   I02   |    Lois /Griffin/    | {'I08', 'I07', 'I09'} |
 | F02 | 1954-02-23 | 1958-12-09 |    I03     |  Mickey /McFinnigan/   |   I04   |   Thelma /Griffin/   |        {'I01'}        |
 | F03 | 1955-03-03 |     NA     |    I05     | Carter /Pewterschmidt/ |   I06   | Barbara /Hebrewberg/ | {'I10', 'I02', 'I12'} |
 | F04 | 1996-04-19 |     NA     |    I11     |      Adam /West/       |   I10   |     Carol /West/     |        {'I13'}        |
 +-----+------------+------------+------------+------------------------+---------+----------------------+-----------------------+
 
-ERROR: FAMILY: US02: I11: Husband's birth date 1996-10-05 after marriage date 1996-04-19
-ERROR: INDIVIDUAL: US03: I14: Died 1921-07-18 before born 1927-05-09
-ERROR: FAMILY: US02: I01: Wife's birth date 1998-02-18 following marriage date 1993-05-14
-ERROR: INDIVIDUAL: US21: I06: Incorrect role for wife in family F03
-ERROR: FAMILY: US22: F04: Multiple occurrences of family's id
 ERROR: INDIVIDUAL: US21: I11: Incorrect role for husband in family F04
-List of deceased individuals:
+ERROR: FAMILY: US22: F04: Multiple occurrences of family's id
+ERROR: INDIVIDUAL: US21: I06: Incorrect role for wife in family F03
+ERROR: FAMILY: US02: I01: Wife's birth date 1998-02-18 following marriage date 1993-05-14
+ERROR: INDIVIDUAL: US03: I14: Died 1921-07-18 before born 1927-05-09
+ERROR: FAMILY: US02: I11: Husband's birth date 1996-10-05 after marriage date 1996-04-19
+US29: List of deceased individuals:
 +-----+-------------------+------------+-----+------------+
 |  ID |        Name       |  Birthday  | Age |   Death    |
 +-----+-------------------+------------+-----+------------+
 | I04 |  Thelma /Griffin/ | 1935-02-14 |  82 | 2017-11-04 |
 | I14 | Francis /Griffin/ | 1927-05-09 |  -6 | 1921-07-18 |
 +-----+-------------------+------------+-----+------------+
-List of living married individuals:
+US30: List of living married individuals:
 +-----------+----------------------+------------------------+---------------+
 | Family ID |         Wife         |        Husband         | Marriage Date |
 +-----------+----------------------+------------------------+---------------+

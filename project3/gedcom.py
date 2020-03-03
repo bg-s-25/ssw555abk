@@ -233,7 +233,7 @@ if __name__ == '__main__':
         for err in errors: print(err)
 
         # US29 & US30 (lists)
-        print('List of deceased individuals:')
+        print('US29: List of deceased individuals:')
         us29.listdeceased(collections[0])
-        print('List of living married individuals:')
+        print('US30: List of living married individuals:')
         us30.listmarried(collections[0], collections[1])
