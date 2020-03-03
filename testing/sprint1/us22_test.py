@@ -1,12 +1,18 @@
 import sys
 import unittest
 import us22
+sys.path.insert(0, '../')
 sys.path.insert(0, '../../')
+import git_utils
 import main_parser
 
 class Tests(unittest.TestCase):
 
-    gedfiles = ['original.ged', 'us22_01.ged', 'us22_02.ged']
+    gedfiles = [
+        git_utils.abs_path('/testing/gedcom/original.ged'), 
+        git_utils.abs_path('/testing/gedcom/us22_01.ged'),
+        git_utils.abs_path('/testing/gedcom/us22_02.ged'),
+    ]
     results = []
 
     def test01(self): # ged contains no repeated ids

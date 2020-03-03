@@ -7,7 +7,8 @@ import glob
 import unittest
 from prettytable import PrettyTable
 sys.path.insert(0, '../')
-import gedcom
+sys.path.insert(0, './sprint1/')
+import main_parser
 import us02_test
 import us03_test
 import us21_test
@@ -30,9 +31,9 @@ def report_test_results(results):
         print(err)
 
 '''
-    Run tests for each user story and aggregate error messages
+    Run tests for each user story in Sprint 1 and aggregate error messages
 '''
-def get_all_test_results():
+def get_sprint1_results():
     results = []
 
     us02_test.unittest.main(exit=False)
@@ -56,7 +57,7 @@ def get_all_test_results():
     return results
 
 def prompt_for_test():
-    testfiles = glob.glob('us*_test.py')
+    testfiles = glob.glob('sprint1/us*_test.py')
     t = PrettyTable()
     t.field_names = ["User Story", "Test File"]
     stories = []
@@ -68,11 +69,11 @@ def prompt_for_test():
     print(t)
 
     while True:
-        us = input("\nTest which user story? ('all' to do all, quit' to quit) -> ")
+        us = input("\nTest which user story/sprint? (quit' to quit) -> ")
         if us in stories:
             print("For now, only testing 'all' works")
-        elif us == 'all':
-            report_test_results(get_all_test_results())
+        elif us == 'sprint1':
+            report_test_results(get_sprint1_results())
         elif us == 'quit':
             break
         else:

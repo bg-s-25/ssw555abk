@@ -1,12 +1,17 @@
 import sys
 import unittest
 import us30
+sys.path.insert(0, '../')
 sys.path.insert(0, '../../')
+import git_utils
 import main_parser
 
 class Tests(unittest.TestCase):
 
-    gedfiles = ['us30_01.ged','us30_02.ged']
+    gedfiles = [
+        git_utils.abs_path('/testing/gedcom/us30_01.ged'), 
+        git_utils.abs_path('/testing/gedcom/us30_02.ged')
+    ]
     txtfiles = ['us30_01.txt','us30_02.txt']
     results = []
 
