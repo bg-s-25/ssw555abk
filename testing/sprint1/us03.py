@@ -1,8 +1,8 @@
 # US03: Birth before death
 
 import sys
-sys.path.insert(0, '../')
-import gedcom
+sys.path.insert(0, '../../')
+import main_parser
 
 '''
     Given list of birth dates and death dates of individuals, ensure that all people are born before death

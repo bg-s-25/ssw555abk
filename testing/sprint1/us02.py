@@ -1,8 +1,8 @@
 # US02: Birth before marriage
 
 import sys
-sys.path.insert(0, '../')
-import gedcom
+sys.path.insert(0, '../../')
+import main_parser
 
 '''
     Given list of birth dates and marriage dates of individuals, ensure that all people are born before marriage

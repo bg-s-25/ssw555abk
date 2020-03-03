@@ -1,8 +1,8 @@
 # US21: Correct gender for role
 
 import sys
-sys.path.insert(0, '../')
-import gedcom
+sys.path.insert(0, '../../')
+import main_parser
 
 '''
     Given dictionaries of individuals & families, ensure that husband and wife in each family have the correct role

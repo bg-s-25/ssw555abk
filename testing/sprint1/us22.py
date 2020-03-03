@@ -1,8 +1,8 @@
 # US21: Unique ids
 
 import sys
-sys.path.insert(0, '../')
-import gedcom
+sys.path.insert(0, '../../')
+import main_parser
 
 '''
     Given lists of read ids, ensure that all individuals and families have unique ids

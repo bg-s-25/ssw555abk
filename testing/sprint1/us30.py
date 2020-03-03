@@ -1,8 +1,8 @@
 # US30: Printing a list of living married family members
 
 import sys
-sys.path.insert(0, '../')
-import gedcom
+sys.path.insert(0, '../../')
+import main_parser
 from prettytable import PrettyTable
 
 '''

@@ -1,8 +1,8 @@
 import sys
 import unittest
 import us21
-sys.path.insert(0, '../')
-import gedcom
+sys.path.insert(0, '../../')
+import main_parser
 
 class Tests(unittest.TestCase):
 
