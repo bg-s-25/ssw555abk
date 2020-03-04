@@ -16,11 +16,20 @@ class Tests(unittest.TestCase):
     results = []
 
     def test01(self): 
-        indivs, fams = main_parser.tester(self.gedfiles[0])[:2]
-        
-    
-    def test02(self): 
-        indivs, fams = main_parser.tester(self.gedfiles[1])[:2]
+        indivs = main_parser.tester(self.gedfiles[0])[0]
+        test_file = us31.listsingle(indivs)
+        result_file = self.txtfiles[0]
+        result = us31.compare(test_file, result_file)
+        self.results += result
+        self.assertEqual(len(result) == 0, True)
+      
+    def test02(self):
+        indivs = main_parser.tester(self.gedfiles[1])[0]
+        test_file = us31.listsingle(indivs)
+        result_file = self.txtfiles[1]
+        result = us31.compare(test_file, result_file)
+        self.results += result
+        self.assertEqual(len(result) == 0, False)
 
 def test_results():
     return Tests.results

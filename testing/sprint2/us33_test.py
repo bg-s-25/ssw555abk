@@ -9,8 +9,8 @@ import main_parser
 class Tests(unittest.TestCase):
 
     gedfiles = [
-        git_utils.abs_path('/testing/gedcom/us33_01.ged') 
-        #git_utils.abs_path('/testing/gedcom/us33_02.ged')
+        git_utils.abs_path('/testing/gedcom/us33_01.ged'), 
+        git_utils.abs_path('/testing/gedcom/us33_02.ged')
     ]
     txtfiles = ['us33_01.txt']
     results = []
