@@ -6,15 +6,11 @@ sys.path.insert(0, '../../')
 import main_parser
 from prettytable import PrettyTable
 
-compare_files = []
-
 def print_bdays(col, print_table=True):
     t = PrettyTable()
     t.field_names = ["ID", "Name", "Birthday"]
     for indiv_id in sorted(col):
         t.add_row(col[indiv_id])
-    # with open('output.txt', 'w') as f:
-    #     f.write(t.get_string())
     if print_table: print(t)
     return t.get_string()
 
