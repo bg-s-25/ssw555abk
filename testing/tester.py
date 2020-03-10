@@ -95,7 +95,7 @@ if __name__ == '__main__':
         if sys.argv[1] == 'all':
             get_all_results()
         elif sys.argv[1] == 'sprint1':
-            get_sprint1_results()
+            report_test_results(get_sprint1_results())
         else:
             print("Error: Option not recognized")
             sys.exit(1)
