@@ -31,31 +31,40 @@ def report_test_results(results):
         print(err)
 
 '''
-    Run tests for each user story in Sprint 1 and aggregate error messages
+    Run all tests and return errors
+'''
+def get_all_results():
+    results = []
+    results += get_sprint1_results()
+    return results
+
+'''
+    Run tests for each user story in Sprint 1 and collect error messages
 '''
 def get_sprint1_results():
     results = []
 
-    us02_test.unittest.main(exit=False)
+    us02_test.unittest.main(argv=[''], exit=False)
     results += us02_test.test_results()
 
-    us03_test.unittest.main(exit=False)
+    us03_test.unittest.main(argv=[''], exit=False)
     results += us03_test.test_results()
 
-    us21_test.unittest.main(exit=False)
+    us21_test.unittest.main(argv=[''], exit=False)
     results += us21_test.test_results()
 
-    us22_test.unittest.main(exit=False)
+    us22_test.unittest.main(argv=[''], exit=False)
     results += us22_test.test_results()
 
-    us29_test.unittest.main(exit=False)
+    us29_test.unittest.main(argv=[''], exit=False)
     results += us29_test.test_results()
 
-    us30_test.unittest.main(exit=False)
+    us30_test.unittest.main(argv=[''], exit=False)
     results += us30_test.test_results()
 
     return results
 
+# currently unused
 def prompt_for_test():
     testfiles = glob.glob('sprint1/us*_test.py')
     t = PrettyTable()
@@ -79,4 +88,14 @@ def prompt_for_test():
         else:
             print("Error: Unknown user story")
 
-prompt_for_test()
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print("Usage: tester.py <all/sprint1>")
+    else:
+        if sys.argv[1] == 'all':
+            get_all_results()
+        elif sys.argv[1] == 'sprint1':
+            get_sprint1_results()
+        else:
+            print("Error: Option not recognized")
+            sys.exit(1)
