@@ -18,5 +18,8 @@ def compare(result_text, result_file, us_num):
 
         elif (us_num == "US38"):
             errors += ["ERROR: INDIVIDUAL: US38: Did not properly list all upcoming birthdays"]
+
+        elif (us_num == "US39"):
+            errors += ["ERROR: INDIVIDUAL: US38: Did not properly list all upcoming anniversaries"]
     result_file.close()
     return errors
