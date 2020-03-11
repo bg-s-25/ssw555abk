@@ -13,25 +13,9 @@ def print_deceased(col):
     t.field_names = ["ID", "Name", "Birthday", "Age", "Death"]
     for deceased_id in sorted(col):
         t.add_row(col[deceased_id])
-    
-    #creates a file of the output
-    table_txt = t.get_string()
-    with open('output.txt','w') as file:
-        file.write(table_txt)
     print(t)
-    file.close()
-    return 'output.txt'
+    return t.get_string()
  
-def compare(file1, file2):
-    errors = []
-    file1 = open(file1,'r')
-    file2 = open(file2,'r')
-    if (file1.read() != file2.read()):
-        errors += ["ERROR: INDIVIDUAL: US29: Did not properly list all dead individuals"]
-    file1.close()
-    file2.close()
-    return errors
-
 def listdeceased(indivs):
     deceased = {}
     for indivs_id in indivs: 
@@ -42,5 +26,4 @@ def listdeceased(indivs):
             deceased[indivs_id][2] = indivs[indivs_id][3] #birthday
             deceased[indivs_id][3] = main_parser.age(indivs[indivs_id][3], indivs[indivs_id][6]) #age
             deceased[indivs_id][4] = indivs[indivs_id][6] #death
-    file = print_deceased(deceased)
-    return file
+    return print_deceased(deceased)

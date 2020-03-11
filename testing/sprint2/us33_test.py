@@ -4,6 +4,7 @@ import us33
 sys.path.insert(0, '../')
 sys.path.insert(0, '../../')
 import git_utils
+import compare
 import main_parser
 
 class Tests(unittest.TestCase):
@@ -17,9 +18,8 @@ class Tests(unittest.TestCase):
 
     def test01(self): 
         indivs, fams = main_parser.tester(self.gedfiles[0])[:2]
-        test_file = us33.listorphaned(indivs, fams)
         result_file = self.txtfiles[0]
-        result = us33.compare(test_file, result_file)
+        result = compare.compare(us33.listorphaned(indivs, fams), result_file, 'US33')
         self.results += result
         self.assertEqual(len(result) == 0, True)
         

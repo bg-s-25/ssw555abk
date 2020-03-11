@@ -9,7 +9,6 @@ import us21
 import us22
 import us29
 import us30
-
 tags = {0: ['INDI', 'FAM', 'HEAD', 'TRLR', 'NOTE'],
         1: ['NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'MARR', 'HUSB', 'WIFE', 'CHIL', 'DIV'],
         2: ['DATE']}
