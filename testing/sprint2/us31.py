@@ -14,24 +14,8 @@ def print_single(col):
     t.field_names = ["Individual ID", "Name", "Age"]
     for child_id in sorted(col):
         t.add_row(col[child_id])
-        
-    #creates a file of the output
-    table_txt = t.get_string()
-    with open('output.txt','w') as file:
-        file.write(table_txt)
     print(t)
-    file.close()
-    return 'output.txt'
-
-def compare(file1, file2):
-    errors = []
-    file1 = open(file1,'r')
-    file2 = open(file2,'r')
-    if (file1.read() != file2.read()):
-        errors += ["ERROR: INDIVIDUAL: US31: Did not properly list all single individuals over 30"]
-    file1.close()
-    file2.close()
-    return errors
+    return t.get_string()
 
 def listsingle(indivs):
     single = {}
@@ -43,5 +27,4 @@ def listsingle(indivs):
             single[indiv_id][1] = indivs[indiv_id][1] #name
             single[indiv_id][2] = age #age
 
-    file = print_single(single)
-    return file
+    return print_single(single)

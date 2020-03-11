@@ -31,14 +31,6 @@ def is_upcoming_bday(bday, date_now=datetime.date(datetime.now())):
     upcoming = bday > date_now and bday <= bdaylessthan
     return upcoming
 
-def compare(result_text, file):
-    errors = []
-    file = open(file, 'r')
-    if (file.read() != result_text):
-        errors += ["ERROR: INDIVIDUAL: US38: Did not properly list all upcoming birthdays"]
-    file.close()
-    return errors
-
 def list_upcoming_bdays(indivs, print_table=True, custom_date=None):
     upcoming_bdays = {}
     for indiv_id in indivs:

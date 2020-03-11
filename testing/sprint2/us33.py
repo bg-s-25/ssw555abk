@@ -14,24 +14,8 @@ def print_orphaned(col):
     t.field_names = ["Individual ID", "Name", "Age"]
     for child_id in sorted(col):
         t.add_row(col[child_id])
-        
-    #creates a file of the output
-    table_txt = t.get_string()
-    with open('output.txt','w') as file:
-        file.write(table_txt)
     print(t)
-    file.close()
-    return 'output.txt'
-
-def compare(file1, file2):
-    errors = []
-    file1 = open(file1,'r')
-    file2 = open(file2,'r')
-    if (file1.read() != file2.read()):
-        errors += ["ERROR: INDIVIDUAL: US33: Did not properly list all living orphaned individuals"]
-    file1.close()
-    file2.close()
-    return errors
+    return t.get_string()    
 
 def listorphaned(indivs, fams):
     orphaned = {}
@@ -48,5 +32,4 @@ def listorphaned(indivs, fams):
                         orphaned[child_id][0] = child_id #id
                         orphaned[child_id][1] = indivs[child_id][1] #name
                         orphaned[child_id][2] = main_parser.age(indivs[child_id][3], indivs[child_id][6]) #age
-    file = print_orphaned(orphaned)
-    return file
+    return print_orphaned(orphaned)

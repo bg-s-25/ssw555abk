@@ -3,6 +3,7 @@ import unittest
 import us29
 sys.path.insert(0, '../')
 sys.path.insert(0, '../../')
+import compare
 import git_utils
 import main_parser
 
@@ -19,17 +20,15 @@ class Tests(unittest.TestCase):
 
     def test01(self):
         indivs = main_parser.tester(self.gedfiles[0])[0]
-        test_file = us29.listdeceased(indivs)
         result_file = self.txtfiles[0]
-        result = us29.compare(test_file, result_file)
+        result = compare.compare(us29.listdeceased(indivs), result_file, "US29")
         self.results += result
         self.assertEqual(len(result) == 0, True)
 
     def test02(self):
         indivs = main_parser.tester(self.gedfiles[0])[0]
-        test_file = us29.listdeceased(indivs)
         result_file = self.txtfiles[1]
-        result = us29.compare(test_file, result_file)
+        result = compare.compare(us29.listdeceased(indivs), result_file, "US29")
         self.results += result
         self.assertEqual(len(result) == 0, False)
 
