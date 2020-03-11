@@ -3,14 +3,12 @@ import datetime
 from prettytable import PrettyTable
 sys.path.append('./testing/sprint1')
 sys.path.append('./testing/sprint2')
-'''
 import us02
 import us03
 import us21
 import us22
 import us29
 import us30
-'''
 tags = {0: ['INDI', 'FAM', 'HEAD', 'TRLR', 'NOTE'],
         1: ['NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'MARR', 'HUSB', 'WIFE', 'CHIL', 'DIV'],
         2: ['DATE']}
