@@ -8,14 +8,14 @@ from prettytable import PrettyTable
 
 def print_bdays(col, print_table=True):
     t = PrettyTable()
-    t.field_names = ["ID", "Name", "Birthday"]
+    t.field_names = ["Individual ID", "Name", "Birthday"]
     for indiv_id in sorted(col):
         t.add_row(col[indiv_id])
     if print_table: print(t)
     return t.get_string()
 
 '''
-    Given a date string in YYYY-MM-DD format, tell if the birthday is in the next 30 days
+    Given the date string in YYYY-MM-DD format, tell if the birthday is in the next 30 days
 '''
 def is_upcoming_bday(bday, date_now=datetime.date(datetime.now())):
     # if a custom date is provided, convert it to a date object
