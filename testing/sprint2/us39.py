@@ -3,6 +3,7 @@
 import sys
 from datetime import datetime, timedelta
 sys.path.insert(0, '../../')
+sys.path.insert(0, '../sprint1')
 import main_parser
 from prettytable import PrettyTable
 
@@ -28,17 +29,20 @@ def is_upcoming_anniv(anniv, date_now=datetime.date(datetime.now())):
 
     # anniv should be between now and 30 days from now
     annivlessthan = date_now + timedelta(days=30)
+    if annivlessthan.year > anniv.year and annivlessthan.month == anniv.month:
+        anniv = anniv.replace(year=annivlessthan.year)
+
     upcoming = anniv > date_now and anniv <= annivlessthan
     return upcoming
 
 def list_upcoming_annivs(fams, print_table=True, custom_date=None):
     upcoming_annivs = {}
     for fam_id in fams:
-        if fams[fam_id][2] != 'NA': continue # do not display anniversary of divorced couple
+        if fams[fam_id][2] != 'NA': continue # do not display anniversary of a divorced couple
         if is_upcoming_anniv(fams[fam_id][1], custom_date if custom_date is not None else datetime.date(datetime.now())):
             upcoming_annivs[fam_id] = [''] * 4
             upcoming_annivs[fam_id][0] = fam_id # id
             upcoming_annivs[fam_id][1] = fams[fam_id][4] # husband name
-            upcoming_annivs[fam_id][1] = fams[fam_id][6] # wife name
-            upcoming_annivs[fam_id][2] = fams[fam_id][1] # anniversary
+            upcoming_annivs[fam_id][2] = fams[fam_id][6] # wife name
+            upcoming_annivs[fam_id][3] = fams[fam_id][1] # anniversary
     return print_annivs(upcoming_annivs, print_table)

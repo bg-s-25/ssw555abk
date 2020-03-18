@@ -3,6 +3,7 @@
 import sys
 from datetime import datetime, timedelta
 sys.path.insert(0, '../../')
+sys.path.insert(0, '../sprint1')
 import main_parser
 from prettytable import PrettyTable
 
@@ -28,6 +29,9 @@ def is_upcoming_bday(bday, date_now=datetime.date(datetime.now())):
 
     # bday should be between now and 30 days from now
     bdaylessthan = date_now + timedelta(days=30)
+    if bdaylessthan.year > bday.year and bdaylessthan.month == bday.month:
+        bday = bday.replace(year=bdaylessthan.year)
+
     upcoming = bday > date_now and bday <= bdaylessthan
     return upcoming
 

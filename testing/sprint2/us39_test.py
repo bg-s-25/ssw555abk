@@ -10,23 +10,30 @@ import main_parser
 class Tests(unittest.TestCase):
 
     gedfiles = [
-        git_utils.abs_path('/testing/gedcom/original.ged')
-        # git_utils.abs_path('/testing/gedcom/us39_01.ged')
+        git_utils.abs_path('/testing/gedcom/original.ged'),
+        git_utils.abs_path('/testing/gedcom/us39_01.ged')
     ]
-    txtfiles = ['us39_00.txt', 'us39_01.txt']
+    txtfiles = ['us39_01.txt', 'us39_02.txt', 'us39_03.txt']
     results = []
 
     def test01(self):
         fams = main_parser.tester(self.gedfiles[0])[1]
         result_file = self.txtfiles[0]
-        result = compare.compare(us39.list_upcoming_annivs(fams, print_table=True), result_file, "US39")
+        result = compare.compare(us39.list_upcoming_annivs(fams, print_table=False, custom_date='2020-04-20'), result_file, "US39")
         self.results += result
         self.assertTrue(len(result) == 0)
 
     def test02(self):
         fams = main_parser.tester(self.gedfiles[0])[1]
         result_file = self.txtfiles[1]
-        result = compare.compare(us39.list_upcoming_annivs(fams, print_table=True, custom_date='2020-04-20'), result_file, "US39")
+        result = compare.compare(us39.list_upcoming_annivs(fams, print_table=False, custom_date='2020-02-14'), result_file, "US39")
+        self.results += result
+        self.assertTrue(len(result) == 0)
+
+    def test03(self):
+        fams = main_parser.tester(self.gedfiles[1])[1]
+        result_file = self.txtfiles[2]
+        result = compare.compare(us39.list_upcoming_annivs(fams, print_table=False, custom_date='2020-12-30'), result_file, "US39")
         self.results += result
         self.assertTrue(len(result) == 0)
 

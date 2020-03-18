@@ -8,6 +8,7 @@ import unittest
 from prettytable import PrettyTable
 sys.path.insert(0, '../')
 sys.path.insert(0, './sprint1/')
+sys.path.insert(0, './sprint2/')
 import main_parser
 import us02_test
 import us03_test
@@ -64,6 +65,14 @@ def get_sprint1_results():
 
     return results
 
+'''
+    Run tests for each user story in Sprint 2 and collect error messages
+'''
+def get_sprint2_results():
+    results = []
+    # gotta add stuff here
+    return results
+
 # currently unused
 def prompt_for_test():
     testfiles = glob.glob('sprint1/us*_test.py')
@@ -90,12 +99,14 @@ def prompt_for_test():
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print("Usage: tester.py <all/sprint1>")
+        print("Usage: tester.py <all/sprint1/sprint2>")
     else:
         if sys.argv[1] == 'all':
             get_all_results()
         elif sys.argv[1] == 'sprint1':
             report_test_results(get_sprint1_results())
+        elif sys.argv[1] == 'sprint2':
+            report_test_results(get_sprint2_results())
         else:
             print("Error: Option not recognized")
             sys.exit(1)
