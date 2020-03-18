@@ -16,12 +16,22 @@ import us21_test
 import us22_test
 import us29_test
 import us30_test
+import us06_test
+import us31_test
+import us33_test
+import us38_test
+import us39_test
 from us02_test import Tests as us02tests
 from us03_test import Tests as us03tests
 from us21_test import Tests as us21tests
 from us22_test import Tests as us22tests
 from us29_test import Tests as us29tests
 from us30_test import Tests as us30tests
+from us06_test import Tests as us06tests
+from us31_test import Tests as us31tests
+from us33_test import Tests as us33tests
+from us38_test import Tests as us38tests
+from us39_test import Tests as us39tests
 
 '''
     Print the errors produced by tests
@@ -37,6 +47,7 @@ def report_test_results(results):
 def get_all_results():
     results = []
     results += get_sprint1_results()
+    results += get_sprint2_results()
     return results
 
 '''
@@ -70,7 +81,22 @@ def get_sprint1_results():
 '''
 def get_sprint2_results():
     results = []
-    # gotta add stuff here
+    
+    us06_test.unittest.main(argv=[''], exit=False)
+    results += us06_test.test_results()
+
+    us31_test.unittest.main(argv=[''], exit=False)
+    results += us31_test.test_results()
+
+    us33_test.unittest.main(argv=[''], exit=False)
+    results += us33_test.test_results()
+
+    us38_test.unittest.main(argv=[''], exit=False)
+    results += us38_test.test_results()
+
+    us39_test.unittest.main(argv=[''], exit=False)
+    results += us39_test.test_results()
+
     return results
 
 # currently unused

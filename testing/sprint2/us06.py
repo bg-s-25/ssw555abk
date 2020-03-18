@@ -2,6 +2,7 @@
 
 import sys
 sys.path.insert(0, '../../')
+sys.path.insert(0, '../sprint1')
 import main_parser
 from datetime import datetime
 from prettytable import PrettyTable
@@ -9,7 +10,6 @@ from prettytable import PrettyTable
 '''
     Given all the divorces in the family, check that divorce occurs before the death of both spouses
 '''
-
 def divorce_before_death(indivs, fams):
     errors = []
     for fam_id in fams:

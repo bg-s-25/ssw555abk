@@ -13,7 +13,9 @@ class Tests(unittest.TestCase):
         git_utils.abs_path('/testing/gedcom/us33_01.ged'), 
         git_utils.abs_path('/testing/gedcom/us33_02.ged')
     ]
-    txtfiles = ['us33_01.txt']
+    txtfiles = [
+        git_utils.abs_path('/testing/sprint2/us33_01.txt')
+    ]
     results = []
 
     def test01(self): 
