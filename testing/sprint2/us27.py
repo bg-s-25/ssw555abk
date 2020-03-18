@@ -6,11 +6,9 @@ sys.path.insert(0, '../sprint1')
 import main_parser
 from prettytable import PrettyTable
 
-'''
-    Given all the individuals in the family, list all their infomration and their current age
-'''
-
 #this converts the dictionary of individuals into pretty table form
+#the age is found in main_parser.age()
+
 def indiv_prettytable(col):
     t = PrettyTable()
     t.field_names = ["ID", "Name", "Gender", "Birthday", "Age", "Alive", "Death", "Child", "Spouse"]
