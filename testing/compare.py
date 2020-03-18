@@ -4,7 +4,10 @@ def compare(result_text, result_file, us_num):
     errors = []
     result_file = open(result_file, 'r')
     if (result_file.read() != result_text):
-        if (us_num == "US29"):
+        if (us_num == "US27"):
+            errors += ["ERROR: INDIVIDUAL: US27: Did not properly list the age of all individuals"]
+        
+        elif (us_num == "US29"):
             errors += ["ERROR: INDIVIDUAL: US29: Did not properly list all dead individuals"]
 
         elif (us_num == "US30"):
