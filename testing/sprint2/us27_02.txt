@@ -1,0 +1,18 @@
++-----+-------------------------+--------+------------+-----+-------+------------+---------+----------------+
+|  ID |           Name          | Gender |  Birthday  | Age | Alive |   Death    |  Child  |     Spouse     |
++-----+-------------------------+--------+------------+-----+-------+------------+---------+----------------+
+| I01 |     Peter /Griffin/     |   M    | 1955-06-22 |  64 |  True |     NA     | {'F02'} |    {'F01'}     |
+| I02 |      Lois /Griffin/     |   F    | 1956-02-18 |  64 |  True |     NA     | {'F03'} |    {'F01'}     |
+| I03 |   Mickey /McFinnigan/   |   M    | 1933-09-03 |  86 |  True |     NA     |    NA   |    {'F02'}     |
+| I04 |     Thelma /Griffin/    |   F    | 1935-02-14 |  82 | False | 2017-11-04 |    NA   | {'F02', 'F04'} |
+| I05 |  Carter /Pewterschmidt/ |   M    | 1933-06-26 |  86 |  True |     NA     |    NA   |    {'F03'}     |
+| I06 |   Barbara /Hebrewberg/  |   F    | 1935-03-18 |  85 |  True |     NA     |    NA   |    {'F03'}     |
+| I07 |     Chris /Griffin/     |   M    | 1997-02-08 |  23 |  True |     NA     | {'F01'} |       NA       |
+| I08 |      Meg /Griffin/      |   F    | 1995-06-02 |  24 |  True |     NA     | {'F01'} |       NA       |
+| I09 |     Stewie /Griffin/    |   M    | 2002-09-11 |  17 |  True |     NA     | {'F01'} |       NA       |
+| I10 |       Carol /West/      |   F    | 1959-07-11 |  60 |  True |     NA     | {'F03'} |    {'F05'}     |
+| I11 |       Adam /West/       |   M    | 1960-05-05 |  59 |  True |     NA     |    NA   |    {'F05'}     |
+| I13 |       Robin /West/      |   F    | 2003-09-19 |  16 |  True |     NA     | {'F05'} |       NA       |
+| I14 |    Francis /Griffin/    |   M    | 1927-05-09 |  80 | False | 2007-07-18 |    NA   |    {'F04'}     |
+| I15 |     Karen /Griffin/     |   F    | 1962-01-28 |  58 |  True |     NA     | {'F04'} |       NA       |
++-----+-------------------------+--------+------------+-----+-------+------------+---------+----------------+
