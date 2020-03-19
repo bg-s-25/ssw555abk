@@ -250,7 +250,7 @@ if __name__ == '__main__':
         us30.listmarried(indivs, fams)
         print('US31: List of living single individuals:')
         us31.listsingle(indivs)
-        print('US33: List of orphans:')
+        print('US33: List of orphaned children:')
         us33.listorphaned(indivs, fams)
         print('US38: List of upcoming birthdays:')
         us38.list_upcoming_bdays(indivs, print_table=True, custom_date='2020-05-01')

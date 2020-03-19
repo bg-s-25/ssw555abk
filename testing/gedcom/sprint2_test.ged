@@ -1,5 +1,5 @@
 0 HEAD
-0 NOTE Sprint 2 test - contains some issues that capture the functionality implemented by user stories: us06, us27, us31, us33, us38, us39
+0 NOTE Sprint 2 test - contains issues that capture the functionality implemented by sprint1 and sprint2 user stories
 0 @I01@ INDI
 1 NAME Peter /Griffin/
 2 GIVN Peter
@@ -17,7 +17,7 @@
 2 _MARNM Griffin
 1 SEX F
 1 BIRT
-2 DATE 18 FEB 1956
+2 DATE 18 FEB 1998
 1 FAMS @F01@
 1 FAMC @F03@
 0 @I03@ INDI
@@ -57,7 +57,7 @@
 2 GIVN Barbara
 2 SURN Hebrewberg
 2 _MARNM Hebrewberg
-1 SEX F
+1 SEX M
 1 BIRT
 2 DATE 18 MAR 1935
 1 FAMS @F03@
@@ -105,9 +105,9 @@
 2 GIVN Adam
 2 SURN West
 2 _MARNM West
-1 SEX M
+1 SEX F
 1 BIRT
-2 DATE 5 MAY 1960
+2 DATE 5 OCT 1996
 1 DEAT Y
 2 DATE 18 MAR 2020
 1 FAMS @F05@
@@ -138,7 +138,7 @@
 1 BIRT
 2 DATE 9 MAY 1927
 1 DEAT Y
-2 DATE 18 JUL 2007
+2 DATE 18 JUL 1921
 1 FAMS @F04@
 0 @I15@ INDI
 1 NAME Karen /Griffin/
