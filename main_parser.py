@@ -8,6 +8,7 @@ import us03
 import us06
 import us21
 import us22
+import us27
 import us29
 import us30
 import us31
@@ -239,8 +240,10 @@ if __name__ == '__main__':
         print("")
         for err in errors: print(err)
 
-        indivs, fams, indivsLst, famsLst = collections
         # List features (US29, US30, US31, US33, US38, US39)
+        indivs, fams, indivsLst, famsLst = collections
+        print('US27: Include individual ages when listing:')
+        print(us27.indiv_prettytable(indivs))
         print('US29: List of deceased individuals:')
         us29.listdeceased(indivs)
         print('US30: List of living married individuals:')

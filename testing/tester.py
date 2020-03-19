@@ -17,6 +17,7 @@ import us22_test
 import us29_test
 import us30_test
 import us06_test
+import us27_test
 import us31_test
 import us33_test
 import us38_test
@@ -28,6 +29,7 @@ from us22_test import Tests as us22tests
 from us29_test import Tests as us29tests
 from us30_test import Tests as us30tests
 from us06_test import Tests as us06tests
+from us27_test import Tests as us27tests
 from us31_test import Tests as us31tests
 from us33_test import Tests as us33tests
 from us38_test import Tests as us38tests
@@ -85,6 +87,9 @@ def get_sprint2_results():
     us06_test.unittest.main(argv=[''], exit=False)
     results += us06_test.test_results()
 
+    us27_test.unittest.main(argv=[''], exit=False)
+    results += us27_test.test_results()
+
     us31_test.unittest.main(argv=[''], exit=False)
     results += us31_test.test_results()
 
@@ -98,30 +103,6 @@ def get_sprint2_results():
     results += us39_test.test_results()
 
     return results
-
-# currently unused
-def prompt_for_test():
-    testfiles = glob.glob('sprint1/us*_test.py')
-    t = PrettyTable()
-    t.field_names = ["User Story", "Test File"]
-    stories = []
-    for testfile in testfiles:
-        story = testfile.rstrip('_test.py')
-        stories += [story]
-        t.add_row([story, testfile])
-    print("Available tests:")
-    print(t)
-
-    while True:
-        us = input("\nTest which user story/sprint? (quit' to quit) -> ")
-        if us in stories:
-            print("For now, only testing 'all' works")
-        elif us == 'sprint1':
-            report_test_results(get_sprint1_results())
-        elif us == 'quit':
-            break
-        else:
-            print("Error: Unknown user story")
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:

@@ -14,5 +14,4 @@ def indiv_prettytable(col):
     t.field_names = ["ID", "Name", "Gender", "Birthday", "Age", "Alive", "Death", "Child", "Spouse"]
     for indi_id in sorted(col):
         t.add_row(col[indi_id])
-    print(t)
     return t.get_string()
