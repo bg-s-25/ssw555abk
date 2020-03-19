@@ -1,6 +1,6 @@
 import sys
 import unittest
-import us30
+import us31
 sys.path.insert(0, '../')
 sys.path.insert(0, '../../')
 import compare
@@ -10,26 +10,26 @@ import main_parser
 class Tests(unittest.TestCase):
 
     gedfiles = [
-        git_utils.abs_path('/testing/gedcom/us30_01.ged'), 
-        git_utils.abs_path('/testing/gedcom/us30_02.ged')
+        git_utils.abs_path('/testing/gedcom/us31_01.ged'), 
+        git_utils.abs_path('/testing/gedcom/us31_02.ged')
     ]
     txtfiles = [
-        git_utils.abs_path('/testing/sprint1/us30_01.txt'), 
-        git_utils.abs_path('/testing/sprint1/us30_02.txt')
+        git_utils.abs_path('/testing/sprint2/us31_01.txt'), 
+        git_utils.abs_path('/testing/sprint2/us31_02.txt')
     ]
     results = []
 
     def test01(self): 
-        indivs, fams = main_parser.tester(self.gedfiles[0])[:2]
+        indivs = main_parser.tester(self.gedfiles[0])[0]
         result_file = self.txtfiles[0]
-        result = compare.compare(us30.listmarried(indivs, fams), result_file, "US30")
+        result = compare.compare(us31.listsingle(indivs), result_file, "US31")
         self.results += result
         self.assertEqual(len(result) == 0, True)
-    
-    def test02(self): 
-        indivs, fams = main_parser.tester(self.gedfiles[1])[:2]
+      
+    def test02(self):
+        indivs = main_parser.tester(self.gedfiles[1])[0]
         result_file = self.txtfiles[1]
-        result = compare.compare(us30.listmarried(indivs, fams), result_file, "US30")
+        result = compare.compare(us31.listsingle(indivs), result_file, "US31")
         self.results += result
         self.assertEqual(len(result) == 0, False)
 

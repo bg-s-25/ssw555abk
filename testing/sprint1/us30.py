@@ -14,24 +14,8 @@ def print_married(col):
     t.field_names = ["Family ID", "Wife", "Husband", "Marriage Date"]
     for married_id in sorted(col):
         t.add_row(col[married_id])
-        
-    #creates a file of the output
-    table_txt = t.get_string()
-    with open('output.txt','w') as file:
-        file.write(table_txt)
     print(t)
-    file.close()
-    return 'output.txt'
-
-def compare(file1, file2):
-    errors = []
-    file1 = open(file1,'r')
-    file2 = open(file2,'r')
-    if (file1.read() != file2.read()):
-        errors += ["ERROR: INDIVIDUAL: US30: Did not properly list all living married individuals"]
-    file1.close()
-    file2.close()
-    return errors
+    return t.get_string()
 
 def listmarried(indivs, fams):
     married = {}
@@ -45,5 +29,4 @@ def listmarried(indivs, fams):
                 married[fam_id][1] = fams[fam_id][6] #wife name
                 married[fam_id][2] = fams[fam_id][4] #husb name
                 married[fam_id][3] = fams[fam_id][1] #marriage date
-    file = print_married(married)
-    return file
+    return print_married(married)
