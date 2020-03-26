@@ -19,6 +19,12 @@ def compare(result_text, result_file, us_num):
         elif (us_num == "US33"):
             errors += ["ERROR: INDIVIDUAL: US33: Did not properly list all living orphaned individuals"]
 
+        elif (us_num == "US35"):
+            errors += ["ERROR: INDIVIDUAL: US35: Did not properly list all individuals born in the last 30 days"]
+
+        elif (us_num == "US36"):
+            errors += ["ERROR: INDIVIDUAL: US36: Did not properly list all individuals who died in the last 30 days"]
+
         elif (us_num == "US38"):
             errors += ["ERROR: INDIVIDUAL: US38: Did not properly list all upcoming birthdays"]
 
