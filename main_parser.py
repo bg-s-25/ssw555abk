@@ -3,6 +3,7 @@ import datetime
 from prettytable import PrettyTable
 sys.path.append('./testing/sprint1')
 sys.path.append('./testing/sprint2')
+sys.path.append('./testing/sprint3')
 import us02
 import us03
 import us06
@@ -242,7 +243,7 @@ if __name__ == '__main__':
         print("")
         for err in errors: print(err)
 
-        # List features (US29, US30, US31, US33, US38, US39)
+        # List features (US27, US29, US30, US31, US33, US38, US39)
         indivs, fams, indivsLst, famsLst = collections
         print('US27: Include individual ages when listing:')
         print(us27.indiv_prettytable(indivs))

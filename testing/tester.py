@@ -9,6 +9,7 @@ from prettytable import PrettyTable
 sys.path.insert(0, '../')
 sys.path.insert(0, './sprint1/')
 sys.path.insert(0, './sprint2/')
+sys.path.insert(0, './sprint3/')
 import main_parser
 import us02_test
 import us03_test
