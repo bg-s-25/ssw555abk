@@ -10,11 +10,10 @@ import main_parser
 class Tests(unittest.TestCase):
 
     gedfiles = [
-        git_utils.abs_path('/testing/gedcom/us36_01.ged'), 
-        git_utils.abs_path('/testing/gedcom/us36_02.ged')
+        git_utils.abs_path('/testing/gedcom/us36_01.ged')
     ]
     txtfiles = [
-        git_utils.abs_path('/testing/sprint2/us36_01.txt')
+        git_utils.abs_path('/testing/sprint3/us36_01.txt')
     ]
     results = []
 
