@@ -18,5 +18,5 @@ def marriage_before_death(individuals,families):
             spouses = indiv[8] #list of spouses
             for spouse in spouses: #parse each spouse of the individuals
                 if families[spouse][1] >= death: #person has married after or on the day of the death
-                    errors += [''] # add the entry to errors
+                    errors += ['ERROR: FAMILY: US05: {} Married after '] # add the entry to errors
     return errors

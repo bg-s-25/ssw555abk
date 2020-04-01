@@ -12,8 +12,8 @@ import main_parser
 
 def marriage_before_divorce(families):
     errors = []
-    for family in families: # parse through each family
+    for family in families.values(): # parse through each family
         #check to see if the family has divorced and check to see if divorce occurred before or on the day of marriage
-        if (families[2] != 'NA' and families[2] <= families[1]): 
-            errors += ['US04: d']
+        if (family[2] != 'NA' and family[2] <= family[1]): 
+            errors += ['ERROR: FAMILY: US04: {}: Divorced {} before married {}'.format(family[0],family[2],family[1])]
     return errors
