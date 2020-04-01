@@ -9,13 +9,13 @@ import main_parser
 '''
     Given the dictionary of families, ensure that there is no more than one family with the same spouses by name & anniversary date
 '''
-def verify_unique_namesbdate(indivs):
+def verify_unique_families(fams):
     errors = []
-    ids = [indivs[indiv_id][0] for indiv_id in indivs]
-    names_bdates = [indivs[indiv_id][1] + ' ' + indivs[indiv_id][3] for indiv_id in indivs]
+    ids = [fams[fam_id][0] for fam_id in fams]
+    annivdates_names = [fams[fam_id][1] + ' ' + fams[fam_id][4] + ' ' + fams[fam_id][6] for fam_id in fams]
     
-    for i in range(len(names_bdates)):
-        if names_bdates.count(names_bdates[i]) > 1:
-            errors += ["ERROR: INDIVIDUAL: US23: {}: More than one individual with the same name and birth date ({})".format(ids[i], names_bdates[i])]
+    for i in range(len(annivdates_names)):
+        if annivdates_names.count(annivdates_names[i]) > 1:
+            errors += ["ERROR: FAMILY: US24: {}: More than one family with the same anniversary date and spouse names ({})".format(ids[i], annivdates_names[i])]
 
     return errors
