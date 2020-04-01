@@ -18,19 +18,19 @@ class Tests(unittest.TestCase):
     errors = []
 
     def test01(self):
-        individuals, families = main_parser.tester(self.gedfiles[0])[:1]
+        individuals, families = main_parser.tester(self.gedfiles[0])[:2]
         error = us05.marriage_before_death(individuals, families)
         self.errors += error
         self.assertEqual(len(error) == 0, False)
 
     def test02(self):
-        individuals, families = main_parser.tester(self.gedfiles[1])[:1]
+        individuals, families = main_parser.tester(self.gedfiles[1])[:2]
         error = us05.marriage_before_death(individuals, families)
         self.errors += error
         self.assertEqual(len(error) == 0, False)
 
     def test03(self):
-        individuals, families = main_parser.tester(self.gedfiles[2])[:1]
+        individuals, families = main_parser.tester(self.gedfiles[2])[:2]
         error = us05.marriage_before_death(individuals, families)
         self.errors += error
         self.assertEqual(len(error) == 0, True)
