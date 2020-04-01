@@ -15,5 +15,5 @@ def marriage_before_divorce(families):
     for family in families: # parse through each family
         #check to see if the family has divorced and check to see if divorce occurred before or on the day of marriage
         if (families[2] != 'NA' and families[2] <= families[1]): 
-            errors += ['']
+            errors += ['US04: ']
     return errors
