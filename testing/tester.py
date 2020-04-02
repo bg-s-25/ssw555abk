@@ -9,29 +9,42 @@ from prettytable import PrettyTable
 sys.path.insert(0, '../')
 sys.path.insert(0, './sprint1/')
 sys.path.insert(0, './sprint2/')
+sys.path.insert(0, './sprint3/')
 import main_parser
 import us02_test
 import us03_test
+import us04_test
+import us05_test
 import us21_test
 import us22_test
+import us23_test
+import us24_test
 import us29_test
 import us30_test
 import us06_test
 import us27_test
 import us31_test
 import us33_test
+import us35_test
+import us36_test
 import us38_test
 import us39_test
 from us02_test import Tests as us02tests
 from us03_test import Tests as us03tests
+from us04_test import Tests as us04tests
+from us05_test import Tests as us05tests
 from us21_test import Tests as us21tests
 from us22_test import Tests as us22tests
+from us23_test import Tests as us23tests
+from us24_test import Tests as us24tests
 from us29_test import Tests as us29tests
 from us30_test import Tests as us30tests
 from us06_test import Tests as us06tests
 from us27_test import Tests as us27tests
 from us31_test import Tests as us31tests
 from us33_test import Tests as us33tests
+from us35_test import Tests as us35tests
+from us36_test import Tests as us36tests
 from us38_test import Tests as us38tests
 from us39_test import Tests as us39tests
 
@@ -50,6 +63,7 @@ def get_all_results():
     results = []
     results += get_sprint1_results()
     results += get_sprint2_results()
+    results += get_sprint3_results()
     return results
 
 '''
@@ -104,9 +118,35 @@ def get_sprint2_results():
 
     return results
 
+'''
+    Run tests for each user story in Sprint 3 and collect error messages
+'''
+def get_sprint3_results():
+    results = []
+    
+    us04_test.unittest.main(argv=[''], exit=False)
+    results += us04_test.test_errors()
+
+    us05_test.unittest.main(argv=[''], exit=False)
+    results += us05_test.test_errors()
+
+    us23_test.unittest.main(argv=[''], exit=False)
+    results += us23_test.test_results()
+
+    us24_test.unittest.main(argv=[''], exit=False)
+    results += us24_test.test_results()
+
+    us35_test.unittest.main(argv=[''], exit=False)
+    results += us35_test.test_results()
+
+    us36_test.unittest.main(argv=[''], exit=False)
+    results += us36_test.test_results()
+
+    return results
+
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print("Usage: tester.py <all/sprint1/sprint2>")
+        print("Usage: tester.py <all/sprint1/sprint2/sprint3>")
     else:
         if sys.argv[1] == 'all':
             get_all_results()
@@ -114,6 +154,8 @@ if __name__ == '__main__':
             report_test_results(get_sprint1_results())
         elif sys.argv[1] == 'sprint2':
             report_test_results(get_sprint2_results())
+        elif sys.argv[1] == 'sprint3':
+            report_test_results(get_sprint3_results())
         else:
             print("Error: Option not recognized")
             sys.exit(1)

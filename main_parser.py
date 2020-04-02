@@ -3,16 +3,23 @@ import datetime
 from prettytable import PrettyTable
 sys.path.append('./testing/sprint1')
 sys.path.append('./testing/sprint2')
+sys.path.append('./testing/sprint3')
 import us02
 import us03
+import us04
+import us05
 import us06
 import us21
 import us22
+import us23
+import us24
 import us27
 import us29
 import us30
 import us31
 import us33
+import us35
+import us36
 import us38
 import us39
 
@@ -71,6 +78,10 @@ def get_errors(indivs, fams, indivsLst, famsLst):
     errors += us21.verify_correct_roles(indivs, fams)
     errors += us22.verify_unique_ids(indivsLst, famsLst)
     errors += us06.divorce_before_death(indivs, fams)
+    errors += us04.marriage_before_divorce(fams)
+    errors += us05.marriage_before_death(indivs, fams)
+    errors += us23.verify_unique_namesbdate(indivs)
+    errors += us24.verify_unique_families(fams)
     return errors
 
 '''
@@ -240,7 +251,7 @@ if __name__ == '__main__':
         print("")
         for err in errors: print(err)
 
-        # List features (US29, US30, US31, US33, US38, US39)
+        # List features (US27, US29, US30, US31, US33, US35, US36, US38, US39)
         indivs, fams, indivsLst, famsLst = collections
         print('US27: Include individual ages when listing:')
         print(us27.indiv_prettytable(indivs))
@@ -252,6 +263,10 @@ if __name__ == '__main__':
         us31.listsingle(indivs)
         print('US33: List of orphaned children:')
         us33.listorphaned(indivs, fams)
+        print('US35: List of recently born individuals:')
+        us35.list_recently_born(indivs)
+        print('US36: List of recently deceased individuals:')
+        us36.list_recently_deceased(indivs)
         print('US38: List of upcoming birthdays:')
         us38.list_upcoming_bdays(indivs, print_table=True, custom_date='2020-05-01')
         print('US39: List of upcoming anniversaries:')
