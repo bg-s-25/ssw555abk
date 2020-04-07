@@ -17,10 +17,17 @@ class Tests(unittest.TestCase):
     errors = []
 
     def test01(self):
-        individuals, families = main_parser.tester(self.gedfiles[0])[:2]
-        error = us15.function(individuals, families)
+        families = main_parser.tester(self.gedfiles[0])[1]
+        error = us15.number_siblings(families)
+        self.errors += error
+        self.assertEqual(len(error) == 0, True)
+    
+    def test02(self):
+        families = main_parser.tester(self.gedfiles[1])[1]
+        error = us15.number_siblings(families)
         self.errors += error
         self.assertEqual(len(error) == 0, False)
+
 
 def test_errors():
     return Tests.errors
