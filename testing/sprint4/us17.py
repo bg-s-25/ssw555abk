@@ -2,9 +2,6 @@
 
 import sys
 sys.path.insert(0, '../../')
-# sys.path.insert(0, '../sprint1')
-# sys.path.insert(0, '../sprint2')
-# sys.path.insert(0, '../sprint3')
 import main_parser
 
 '''
@@ -12,6 +9,7 @@ import main_parser
 '''
 def check_marr_child(indivs, fams):
     errors = []
+
     for indiv_id in indivs:
         children = set()
 
