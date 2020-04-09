@@ -187,6 +187,7 @@ def process_lines(valid_lines):
 def get_valid(lines):
     valid_lines = []
     for line in lines:
+        if line.strip() == '': continue
         line = line.split()
         valid = True
 
@@ -227,7 +228,7 @@ def open_file(filename):
         for i in range(len(buffer)):
             buffer[i] = buffer[i].rstrip()
     except FileNotFoundError:
-        print("Error: Cannot find input file")
+        print("Error: Cannot find input file: {}".format(filename))
         raise SystemExit
     return buffer
 
