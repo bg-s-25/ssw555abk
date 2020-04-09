@@ -17,7 +17,7 @@ def print_recently_born(col, print_table=True):
     t.field_names = ["Individual ID", "Name", "Birthday"]
     for indiv_id in sorted(col):
         t.add_row(col[indiv_id])
-    print(t)
+    if print_table: print(t)
     return t.get_string()
 
 def check_bday(bday):
@@ -30,7 +30,7 @@ def check_bday(bday):
     
     return daysago30
 
-def list_recently_born(indivs):
+def list_recently_born(indivs, print_table):
     born_recently = {}
     for indiv_id in indivs:
         bday = indivs[indiv_id][3]
@@ -39,4 +39,4 @@ def list_recently_born(indivs):
             born_recently[indiv_id][0] = indiv_id #id
             born_recently[indiv_id][1] = indivs[indiv_id][1] #name
             born_recently[indiv_id][2] = indivs[indiv_id][3] #birthday
-    return print_recently_born(born_recently)
+    return print_recently_born(born_recently, print_table)

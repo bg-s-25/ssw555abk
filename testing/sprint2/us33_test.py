@@ -21,7 +21,7 @@ class Tests(unittest.TestCase):
     def test01(self): 
         indivs, fams = main_parser.tester(self.gedfiles[0])[:2]
         result_file = self.txtfiles[0]
-        result = compare.compare(us33.listorphaned(indivs, fams), result_file, 'US33')
+        result = compare.compare(us33.listorphaned(indivs, fams, print_table=False), result_file, 'US33')
         self.results += result
         self.assertEqual(len(result) == 0, True)
 

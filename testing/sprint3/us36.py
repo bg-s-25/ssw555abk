@@ -16,7 +16,7 @@ def print_recently_deceased(col, print_table=True):
     t.field_names = ["Individual ID", "Name", "Birthday"]
     for indiv_id in sorted(col):
         t.add_row(col[indiv_id])
-    print(t)
+    if print_table: print(t)
     return t.get_string()
 
 def check_dday(bday):
@@ -29,7 +29,7 @@ def check_dday(bday):
     
     return daysago30
 
-def list_recently_deceased(indivs):
+def list_recently_deceased(indivs, print_table):
     died_recently = {}
     for indiv_id in indivs: 
         if indivs[indiv_id][6] != "NA":
@@ -40,4 +40,4 @@ def list_recently_deceased(indivs):
                 died_recently[indiv_id][1] = indivs[indiv_id][1] #name
                 died_recently[indiv_id][2] = indivs[indiv_id][6] #deathday
 
-    return print_recently_deceased(died_recently)
+    return print_recently_deceased(died_recently, print_table)
