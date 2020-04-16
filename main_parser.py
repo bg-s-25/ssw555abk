@@ -12,6 +12,8 @@ import us04
 import us05
 import us06
 import us15
+import us17
+import us18
 import us21
 import us22
 import us23
@@ -76,13 +78,17 @@ def tester(file):
 '''
 def get_errors(indivs, fams, indivsLst, famsLst):
     errors = []
+    errors += us01.check_all_dates(indivs, fams)
     errors += us02.bbm(indivs, fams)
     errors += us03.bbd(indivs)
-    errors += us21.verify_correct_roles(indivs, fams)
-    errors += us22.verify_unique_ids(indivsLst, famsLst)
     errors += us06.divorce_before_death(indivs, fams)
     errors += us04.marriage_before_divorce(fams)
     errors += us05.marriage_before_death(indivs, fams)
+    errors += us15.number_siblings(fams)
+    errors += us17.check_marr_child(indivs, fams)
+    errors += us18.check_marr_sib(indivs, fams)
+    errors += us21.verify_correct_roles(indivs, fams)
+    errors += us22.verify_unique_ids(indivsLst, famsLst)
     errors += us23.verify_unique_namesbdate(indivs)
     errors += us24.verify_unique_families(fams)
     return errors

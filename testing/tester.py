@@ -12,10 +12,14 @@ sys.path.insert(0, './sprint2/')
 sys.path.insert(0, './sprint3/')
 sys.path.insert(0, './sprint4/')
 import main_parser
+import us01_test
 import us02_test
 import us03_test
 import us04_test
 import us05_test
+import us15_test
+import us17_test
+import us18_test
 import us21_test
 import us22_test
 import us23_test
@@ -30,10 +34,14 @@ import us35_test
 import us36_test
 import us38_test
 import us39_test
+from us01_test import Tests as us01tests
 from us02_test import Tests as us02tests
 from us03_test import Tests as us03tests
 from us04_test import Tests as us04tests
 from us05_test import Tests as us05tests
+from us15_test import Tests as us15tests
+from us17_test import Tests as us17tests
+from us18_test import Tests as us18tests
 from us21_test import Tests as us21tests
 from us22_test import Tests as us22tests
 from us23_test import Tests as us23tests
@@ -65,6 +73,7 @@ def get_all_results():
     results += get_sprint1_results()
     results += get_sprint2_results()
     results += get_sprint3_results()
+    results += get_sprint4_results()
     return results
 
 '''
@@ -145,6 +154,26 @@ def get_sprint3_results():
 
     return results
 
+'''
+    Run tests for each user story in Sprint 4 and collect error messages
+'''
+def get_sprint4_results():
+    results = []
+    
+    us01_test.unittest.main(argv=[''], exit=False)
+    results += us01_test.test_errors()
+
+    us15_test.unittest.main(argv=[''], exit=False)
+    results += us15_test.test_errors()
+
+    us17_test.unittest.main(argv=[''], exit=False)
+    results += us17_test.test_errors()
+
+    us18_test.unittest.main(argv=[''], exit=False)
+    results += us18_test.test_errors()
+
+    return results
+
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("Usage: tester.py <all/sprint1/sprint2/sprint3>")
@@ -157,6 +186,7 @@ if __name__ == '__main__':
             report_test_results(get_sprint2_results())
         elif sys.argv[1] == 'sprint3':
             report_test_results(get_sprint3_results())
+        elif sys.argv[1] == 'sprint4':
+            report_test_results(get_sprint4_results())
         else:
             print("Error: Option not recognized")
-            sys.exit(1)
