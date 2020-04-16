@@ -6,6 +6,9 @@ def compare(result_text, result_file, us_num):
     if (result_file.read() != result_text):
         if (us_num == "US27"):
             errors += ["ERROR: INDIVIDUAL: US27: Did not properly list the age of all individuals"]
+
+        elif (us_num == "US28"):
+            errors += ["ERROR: FAMILY: US28: Did not properly list siblings in decreasing order"]
         
         elif (us_num == "US29"):
             errors += ["ERROR: INDIVIDUAL: US29: Did not properly list all dead individuals"]
@@ -15,6 +18,9 @@ def compare(result_text, result_file, us_num):
 
         elif (us_num == "US31"):
             errors += ["ERROR: INDIVIDUAL: US31: Did not properly list all single individuals over 30"]
+
+        elif (us_num == "US32"):
+            errors += ["ERROR: FAMILY: US32: Did not properly list all multiple births"]
 
         elif (us_num == "US33"):
             errors += ["ERROR: INDIVIDUAL: US33: Did not properly list all living orphaned individuals"]

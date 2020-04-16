@@ -1,0 +1,134 @@
+0 HEAD
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE us32_02
+1 DATE 15 APR 2020
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME Asif Uddin
+1 SUBN
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Dayna /Hutton/
+2 GIVN Dayna
+2 SURN Hutton
+2 _MARNM Hutton
+1 SEX F
+1 BIRT
+2 DATE 1 FEB 1979
+1 FAMC @F1@
+0 @I2@ INDI
+1 NAME Johan /ERay/
+2 GIVN Johan
+2 SURN ERay
+2 _MARNM ERay
+1 SEX M
+1 BIRT
+2 DATE 1 APR 1935
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME Asiya /Cobb/
+2 GIVN Asiya
+2 SURN Cobb
+2 _MARNM Cobb
+1 SEX F
+1 BIRT
+2 DATE 4 APR 1930
+1 FAMS @F1@
+0 @I4@ INDI
+1 NAME Sadiyah /Mellor/
+2 GIVN Sadiyah
+2 SURN Mellor
+2 _MARNM Mellor
+1 SEX F
+1 BIRT
+2 DATE 1 FEB 1979
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME Humayra /Sanford/
+2 GIVN Humayra
+2 SURN Sanford
+2 _MARNM Sanford
+1 SEX M
+1 BIRT
+2 DATE 1 MAR 1970
+1 FAMS @F2@
+1 FAMS @F3@
+1 FAMC @F1@
+0 @I6@ INDI
+1 NAME Monique /Miller/
+2 GIVN Monique
+2 SURN Miller
+2 _MARNM Miller
+1 SEX F
+1 BIRT
+2 DATE 1 MAR 1970
+1 FAMS @F2@
+0 @I7@ INDI
+1 NAME Kiran /Fostrer/
+2 GIVN Kiran
+2 SURN Fostrer
+2 _MARNM Fostrer
+1 SEX F
+1 BIRT
+2 DATE 7 JUN 1975
+1 FAMS @F3@
+0 @I8@ INDI
+1 NAME Rayyan /Grant/
+2 GIVN Rayyan
+2 SURN Grant
+2 _MARNM Grant
+1 SEX M
+1 BIRT
+2 DATE 4 MAY 1994
+1 FAMC @F3@
+0 @I9@ INDI
+1 NAME Troy /Montgomery/
+2 GIVN Troy
+2 SURN Montgomery
+2 _MARNM Montgomery
+1 SEX M
+1 BIRT
+2 DATE 4 MAY 1994
+1 FAMC @F3@
+0 @I10@ INDI
+1 NAME Amalia /Russell/
+2 GIVN Amalia
+2 SURN Russell
+2 _MARNM Russell
+1 SEX F
+1 BIRT
+2 DATE 4 MAY 1994
+1 FAMC @F2@
+0 @I11@ INDI
+1 NAME Maciej /Cisneros/
+2 GIVN Maciej
+2 SURN Cisneros
+2 _MARNM Cisneros
+1 SEX M
+1 BIRT
+2 DATE 4 MAY 1994
+1 FAMC @F2@
+0 @F1@ FAM
+1 HUSB @I2@
+1 WIFE @I3@
+1 CHIL @I1@
+1 CHIL @I4@
+1 CHIL @I5@
+1 _CURRENT Y
+0 @F2@ FAM
+1 HUSB @I5@
+1 WIFE @I6@
+1 CHIL @I10@
+1 CHIL @I11@
+1 _CURRENT Y
+0 @F3@ FAM
+1 HUSB @I5@
+1 WIFE @I7@
+1 CHIL @I8@
+1 CHIL @I9@
+1 _CURRENT N
+0 TRLR
