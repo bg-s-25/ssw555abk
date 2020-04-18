@@ -249,7 +249,7 @@ if __name__ == '__main__':
         collections = process_lines(get_valid(buffer))
 
         # collect errors
-        errors = list(set(get_errors(*collections)))
+        errors = sorted(list(set(get_errors(*collections))))
 
         # print tables
         print('Individuals')
