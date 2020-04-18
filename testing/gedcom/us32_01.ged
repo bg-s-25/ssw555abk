@@ -2,7 +2,7 @@
 1 SOUR Family Echo
 2 WWW http://www.familyecho.com/
 1 FILE us32_01
-1 DATE 15 APR 2020
+1 DATE 18 APR 2020
 1 DEST ANSTFILE
 1 GEDC
 2 VERS 5.5.1
@@ -101,6 +101,8 @@
 2 SURN Sims
 2 _MARNM Sims
 1 SEX M
+1 BIRT
+2 DATE 6 JUL 1907
 1 FAMS @F3@
 1 FAMC @F2@
 0 @I11@ INDI
