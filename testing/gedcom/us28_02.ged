@@ -1,0 +1,158 @@
+0 HEAD
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE us28_02
+1 DATE 15 APR 2020
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME Asif Uddin
+1 SUBN
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Mohammed /Underwood/
+2 GIVN Mohammed
+2 SURN Underwood
+2 _MARNM Underwood
+1 SEX M
+1 BIRT
+2 DATE 7 MAY 1980
+1 FAMC @F1@
+0 @I2@ INDI
+1 NAME Abdurrahman /Gale/
+2 GIVN Abdurrahman
+2 SURN Gale
+2 _MARNM Gale
+1 SEX M
+1 BIRT
+2 DATE 6 APR 1955
+1 FAMS @F1@
+1 FAMS @F2@
+0 @I3@ INDI
+1 NAME Chloe-Ann /Prince/
+2 GIVN Chloe-Ann
+2 SURN Prince
+2 _MARNM Prince
+1 SEX F
+1 BIRT
+2 DATE 11 MAR 1957
+1 FAMS @F1@
+0 @I4@ INDI
+1 NAME Yasmine /Underwood/
+2 GIVN Yasmine
+2 SURN Underwood
+2 _MARNM Underwood
+1 SEX F
+1 BIRT
+2 DATE 5 SEP 1981
+1 FAMS @F3@
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME Shakira /McPherson/
+2 GIVN Shakira
+2 SURN McPherson
+2 _MARNM McPherson
+1 SEX F
+1 BIRT
+2 DATE 8 MAY 2001
+1 FAMC @F3@
+0 @I6@ INDI
+1 NAME Mehdi /Peck/
+2 GIVN Mehdi
+2 SURN Peck
+2 _MARNM Peck
+1 SEX M
+1 BIRT
+2 DATE 7 APR 1979
+1 FAMS @F3@
+0 @I7@ INDI
+1 NAME Una /Belvins/
+2 GIVN Una
+2 SURN Belvins
+2 _MARNM Belvins
+1 SEX F
+1 BIRT
+2 DATE 7 SEP 1959
+1 DEAT Y
+2 DATE 3 SEP 1990
+1 FAMS @F2@
+0 @I8@ INDI
+1 NAME Joss /Day/
+2 GIVN Joss
+2 SURN Day
+2 _MARNM Day
+1 SEX M
+1 BIRT
+2 DATE 9 FEB 1970
+1 DEAT Y
+2 DATE 3 SEP 2013
+1 FAMC @F2@
+0 @I9@ INDI
+1 NAME Aamina /McPherson/
+2 GIVN Aamina
+2 SURN McPherson
+2 _MARNM McPherson
+1 SEX F
+1 BIRT
+2 DATE 8 MAY 2000
+1 FAMC @F3@
+0 @I10@ INDI
+1 NAME Una /McPherson/
+2 GIVN Una
+2 SURN McPherson
+2 _MARNM McPherson
+1 SEX F
+1 BIRT
+2 DATE 5 AUG 2002
+1 FAMC @F3@
+0 @I11@ INDI
+1 NAME Arun /McPherson/
+2 GIVN Arun
+2 SURN McPherson
+2 _MARNM McPherson
+1 SEX M
+1 BIRT
+2 DATE 5 MAR 2002
+1 FAMC @F3@
+0 @I12@ INDI
+1 NAME Joss /McPherson/
+2 GIVN Joss
+2 SURN McPherson
+2 _MARNM McPherson
+1 SEX M
+1 BIRT
+2 DATE 6 JUN 2006
+1 FAMC @F3@
+0 @I13@ INDI
+1 NAME Emmanuella /Rodriquez/
+2 GIVN Emmanuella
+2 SURN Rodriquez
+2 _MARNM Rodriquez
+1 SEX M
+1 BIRT
+2 DATE 9 FEB 1971
+1 FAMC @F2@
+0 @F1@ FAM
+1 HUSB @I2@
+1 WIFE @I3@
+1 CHIL @I1@
+1 CHIL @I4@
+1 _CURRENT Y
+0 @F2@ FAM
+1 HUSB @I2@
+1 WIFE @I7@
+1 CHIL @I8@
+1 CHIL @I13@
+1 _CURRENT N
+0 @F3@ FAM
+1 HUSB @I6@
+1 WIFE @I4@
+1 CHIL @I5@
+1 CHIL @I9@
+1 CHIL @I10@
+1 CHIL @I11@
+1 CHIL @I12@
+1 _CURRENT N
+0 TRLR
