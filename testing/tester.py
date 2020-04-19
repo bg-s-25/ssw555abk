@@ -17,6 +17,7 @@ import us02_test
 import us03_test
 import us04_test
 import us05_test
+import us06_test
 import us15_test
 import us17_test
 import us18_test
@@ -24,11 +25,12 @@ import us21_test
 import us22_test
 import us23_test
 import us24_test
+import us27_test
+import us28_test
 import us29_test
 import us30_test
-import us06_test
-import us27_test
 import us31_test
+import us32_test
 import us33_test
 import us35_test
 import us36_test
@@ -39,6 +41,7 @@ from us02_test import Tests as us02tests
 from us03_test import Tests as us03tests
 from us04_test import Tests as us04tests
 from us05_test import Tests as us05tests
+from us06_test import Tests as us06tests
 from us15_test import Tests as us15tests
 from us17_test import Tests as us17tests
 from us18_test import Tests as us18tests
@@ -46,11 +49,12 @@ from us21_test import Tests as us21tests
 from us22_test import Tests as us22tests
 from us23_test import Tests as us23tests
 from us24_test import Tests as us24tests
+from us27_test import Tests as us27tests
+from us28_test import Tests as us28tests
 from us29_test import Tests as us29tests
 from us30_test import Tests as us30tests
-from us06_test import Tests as us06tests
-from us27_test import Tests as us27tests
 from us31_test import Tests as us31tests
+from us32_test import Tests as us32tests
 from us33_test import Tests as us33tests
 from us35_test import Tests as us35tests
 from us36_test import Tests as us36tests
@@ -172,11 +176,17 @@ def get_sprint4_results():
     us18_test.unittest.main(argv=[''], exit=False)
     results += us18_test.test_errors()
 
+    us28_test.unittest.main(argv=[''], exit=False)
+    results += us28_test.test_results()
+
+    us32_test.unittest.main(argv=[''], exit=False)
+    results += us32_test.test_results()
+
     return results
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print("Usage: tester.py <all/sprint1/sprint2/sprint3>")
+        print("Usage: tester.py <all/sprint1/sprint2/sprint3/sprint4>")
     else:
         if sys.argv[1] == 'all':
             get_all_results()

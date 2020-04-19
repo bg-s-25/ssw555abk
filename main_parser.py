@@ -19,9 +19,11 @@ import us22
 import us23
 import us24
 import us27
+import us28
 import us29
 import us30
 import us31
+import us32
 import us33
 import us35
 import us36
@@ -261,16 +263,20 @@ if __name__ == '__main__':
         print("")
         for err in errors: print(err)
 
-        # List features (US27, US29, US30, US31, US33, US35, US36, US38, US39)
+        # List features (US27, US28, US29, US30, US31, US32, US33, US35, US36, US38, US39)
         indivs, fams, indivsLst, famsLst = collections
         print('US27: Include individual ages when listing:')
         print(us27.indiv_prettytable(indivs))
+        print('US28: Order siblings by age')
+        print(us28.list_siblings(indivs, fams, print_table=True))
         print('US29: List of deceased individuals:')
         us29.listdeceased(indivs, print_table=True)
         print('US30: List of living married individuals:')
         us30.listmarried(indivs, fams, print_table=True)
         print('US31: List of living single individuals:')
         us31.listsingle(indivs, print_table=True)
+        print('US32: List multiple births:')
+        us32.list_multiple_births(indivs, fams, print_table=True)
         print('US33: List of orphaned children:')
         us33.listorphaned(indivs, fams, print_table=True)
         print('US35: List of recently born individuals:')

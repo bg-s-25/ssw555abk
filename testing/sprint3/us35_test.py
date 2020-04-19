@@ -14,20 +14,21 @@ class Tests(unittest.TestCase):
         git_utils.abs_path('/testing/gedcom/us35_02.ged')
     ]
     txtfiles = [
-        git_utils.abs_path('/testing/sprint3/us35_01.txt')
+        git_utils.abs_path('/testing/sprint3/us35_01.txt'),
+        git_utils.abs_path('/testing/sprint3/us35_02.txt')
     ]
     results = []
 
     def test01(self): 
         indivs = main_parser.tester(self.gedfiles[0])[0]
-        result_file = self.txtfiles[0]
-        result = compare.compare(us35.list_recently_born(indivs, print_table=False), result_file, 'US35')
+        result_file = self.txtfiles[1]
+        result = compare.compare(us35.list_recently_born(indivs, print_table=False, custom_date='2020-04-01'), result_file, 'US35')
         self.results += result
         self.assertEqual(len(result) == 0, True)
     
     def test02(self): 
         indivs = main_parser.tester(self.gedfiles[1])[0]
-        result_file = self.txtfiles[0]
+        result_file = self.txtfiles[1]
         result = compare.compare(us35.list_recently_born(indivs, print_table=False), result_file, 'US35')
         self.results += result
         self.assertEqual(len(result) == 0, False)
