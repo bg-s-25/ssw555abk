@@ -22,14 +22,14 @@ class Tests(unittest.TestCase):
     def test01(self): 
         indivs = main_parser.tester(self.gedfiles[0])[0]
         result_file = self.txtfiles[0]
-        result = compare.compare(us31.listsingle(indivs), result_file, "US31")
+        result = compare.compare(us31.listsingle(indivs, print_table=False), result_file, "US31")
         self.results += result
         self.assertEqual(len(result) == 0, True)
       
     def test02(self):
         indivs = main_parser.tester(self.gedfiles[1])[0]
         result_file = self.txtfiles[1]
-        result = compare.compare(us31.listsingle(indivs), result_file, "US31")
+        result = compare.compare(us31.listsingle(indivs, print_table=False), result_file, "US31")
         self.results += result
         self.assertEqual(len(result) == 0, False)
 

@@ -9,15 +9,15 @@ from prettytable import PrettyTable
     Given all the individuals in the family, list all living people over 30 who have never been married
 '''
 
-def print_single(col):
+def print_single(col, print_table=True):
     t = PrettyTable()
     t.field_names = ["Individual ID", "Name", "Age"]
     for child_id in sorted(col):
         t.add_row(col[child_id])
-    print(t)
+    if print_table: print(t)
     return t.get_string()
 
-def listsingle(indivs):
+def listsingle(indivs, print_table):
     single = {}
     for indiv_id in indivs:
         age = main_parser.age(indivs[indiv_id][3], indivs[indiv_id][6])
@@ -27,4 +27,4 @@ def listsingle(indivs):
             single[indiv_id][1] = indivs[indiv_id][1] #name
             single[indiv_id][2] = age #age
 
-    return print_single(single)
+    return print_single(single, print_table)

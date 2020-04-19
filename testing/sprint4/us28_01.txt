@@ -1,0 +1,13 @@
++-----------+------------------+-----+
+| Family ID |       Name       | Age |
++-----------+------------------+-----+
+|     F1    |  Tea /Pollard/   |  22 |
+|     F1    |   TJ /Pollard/   |  20 |
+|     F1    |  Gia /Pollard/   |  -2 |
+|     F2    | Courtney /Berg/  |  51 |
+|     F2    | Autumn /Melton/  |  42 |
+|     F3    |  Huw /Conolly/   |  0  |
+|     F3    | Zaina /Conolly/  |  -1 |
+|     F4    | Marlene /Lynch/  |  36 |
+|     F5    | Nathalie /Felix/ |  24 |
++-----------+------------------+-----+

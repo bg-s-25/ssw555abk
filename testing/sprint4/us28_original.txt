@@ -1,0 +1,13 @@
++-----------+-------------------------+-----+
+| Family ID |           Name          | Age |
++-----------+-------------------------+-----+
+|    F01    |      Meg /Griffin/      |  24 |
+|    F01    |     Chris /Griffin/     |  23 |
+|    F01    |     Stewie /Griffin/    |  17 |
+|    F02    |     Peter /Griffin/     |  64 |
+|    F04    |     Karen /Griffin/     |  58 |
+|    F03    | Patrick /Pewterschmidt/ |  64 |
+|    F03    |      Lois /Griffin/     |  64 |
+|    F03    |       Carol /West/      |  60 |
+|    F05    |       Robin /West/      |  16 |
++-----------+-------------------------+-----+

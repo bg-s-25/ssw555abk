@@ -20,7 +20,7 @@ class Tests(unittest.TestCase):
     def test01(self): 
         indivs = main_parser.tester(self.gedfiles[0])[0]
         result_file = self.txtfiles[0]
-        result = compare.compare(us36.list_recently_deceased(indivs), result_file, 'US36')
+        result = compare.compare(us36.list_recently_deceased(indivs, print_table=False, custom_date='2020-04-01'), result_file, 'US36')
         self.results += result
         self.assertEqual(len(result) == 0, True)
 

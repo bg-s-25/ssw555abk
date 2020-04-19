@@ -4,19 +4,26 @@ from prettytable import PrettyTable
 sys.path.append('./testing/sprint1')
 sys.path.append('./testing/sprint2')
 sys.path.append('./testing/sprint3')
+sys.path.append('./testing/sprint4')
+import us01
 import us02
 import us03
 import us04
 import us05
 import us06
+import us15
+import us17
+import us18
 import us21
 import us22
 import us23
 import us24
 import us27
+import us28
 import us29
 import us30
 import us31
+import us32
 import us33
 import us35
 import us36
@@ -73,13 +80,17 @@ def tester(file):
 '''
 def get_errors(indivs, fams, indivsLst, famsLst):
     errors = []
+    errors += us01.check_all_dates(indivs, fams)
     errors += us02.bbm(indivs, fams)
     errors += us03.bbd(indivs)
-    errors += us21.verify_correct_roles(indivs, fams)
-    errors += us22.verify_unique_ids(indivsLst, famsLst)
     errors += us06.divorce_before_death(indivs, fams)
     errors += us04.marriage_before_divorce(fams)
     errors += us05.marriage_before_death(indivs, fams)
+    errors += us15.number_siblings(fams)
+    errors += us17.check_marr_child(indivs, fams)
+    errors += us18.check_marr_sib(indivs, fams)
+    errors += us21.verify_correct_roles(indivs, fams)
+    errors += us22.verify_unique_ids(indivsLst, famsLst)
     errors += us23.verify_unique_namesbdate(indivs)
     errors += us24.verify_unique_families(fams)
     return errors
@@ -185,6 +196,7 @@ def process_lines(valid_lines):
 def get_valid(lines):
     valid_lines = []
     for line in lines:
+        if line.strip() == '': continue
         line = line.split()
         valid = True
 
@@ -225,7 +237,7 @@ def open_file(filename):
         for i in range(len(buffer)):
             buffer[i] = buffer[i].rstrip()
     except FileNotFoundError:
-        print("Error: Cannot find input file")
+        print("Error: Cannot find input file: {}".format(filename))
         raise SystemExit
     return buffer
 
@@ -239,7 +251,7 @@ if __name__ == '__main__':
         collections = process_lines(get_valid(buffer))
 
         # collect errors
-        errors = list(set(get_errors(*collections)))
+        errors = sorted(list(set(get_errors(*collections))))
 
         # print tables
         print('Individuals')
@@ -251,22 +263,26 @@ if __name__ == '__main__':
         print("")
         for err in errors: print(err)
 
-        # List features (US27, US29, US30, US31, US33, US35, US36, US38, US39)
+        # List features (US27, US28, US29, US30, US31, US32, US33, US35, US36, US38, US39)
         indivs, fams, indivsLst, famsLst = collections
         print('US27: Include individual ages when listing:')
         print(us27.indiv_prettytable(indivs))
+        print('US28: Order siblings by age:')
+        print(us28.list_siblings(indivs, fams, print_table=True))
         print('US29: List of deceased individuals:')
-        us29.listdeceased(indivs)
+        us29.listdeceased(indivs, print_table=True)
         print('US30: List of living married individuals:')
-        us30.listmarried(indivs, fams)
+        us30.listmarried(indivs, fams, print_table=True)
         print('US31: List of living single individuals:')
-        us31.listsingle(indivs)
+        us31.listsingle(indivs, print_table=True)
+        print('US32: List multiple births:')
+        us32.list_multiple_births(indivs, fams, print_table=True)
         print('US33: List of orphaned children:')
-        us33.listorphaned(indivs, fams)
+        us33.listorphaned(indivs, fams, print_table=True)
         print('US35: List of recently born individuals:')
-        us35.list_recently_born(indivs)
+        us35.list_recently_born(indivs, print_table=True)
         print('US36: List of recently deceased individuals:')
-        us36.list_recently_deceased(indivs)
+        us36.list_recently_deceased(indivs, print_table=True)
         print('US38: List of upcoming birthdays:')
         us38.list_upcoming_bdays(indivs, print_table=True, custom_date='2020-05-01')
         print('US39: List of upcoming anniversaries:')

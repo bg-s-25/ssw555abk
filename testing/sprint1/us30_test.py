@@ -22,14 +22,14 @@ class Tests(unittest.TestCase):
     def test01(self): 
         indivs, fams = main_parser.tester(self.gedfiles[0])[:2]
         result_file = self.txtfiles[0]
-        result = compare.compare(us30.listmarried(indivs, fams), result_file, "US30")
+        result = compare.compare(us30.listmarried(indivs, fams, print_table=False), result_file, "US30")
         self.results += result
         self.assertEqual(len(result) == 0, True)
     
     def test02(self): 
         indivs, fams = main_parser.tester(self.gedfiles[1])[:2]
         result_file = self.txtfiles[1]
-        result = compare.compare(us30.listmarried(indivs, fams), result_file, "US30")
+        result = compare.compare(us30.listmarried(indivs, fams, print_table=False), result_file, "US30")
         self.results += result
         self.assertEqual(len(result) == 0, False)
 

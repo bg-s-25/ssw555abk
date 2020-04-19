@@ -1,0 +1,212 @@
+Individuals
++-----+-------------------------+--------+------------+-----+-------+------------+---------+----------------+
+|  ID |           Name          | Gender |  Birthday  | Age | Alive |   Death    |  Child  |     Spouse     |
++-----+-------------------------+--------+------------+-----+-------+------------+---------+----------------+
+| I01 |     Peter /Griffin/     |   M    | 1955-06-22 |  64 |  True |     NA     | {'F02'} |    {'F01'}     |
+| I02 |      Lois /Griffin/     |   F    | 1998-02-18 |  22 |  True |     NA     | {'F03'} | {'F06', 'F01'} |
+| I03 |    Francis /Griffin/    |   M    | 1933-09-03 |  83 | False | 2016-11-04 |    NA   |    {'F02'}     |
+| I04 |     Thelma /Griffin/    |   F    | 1935-02-14 |  82 | False | 2017-11-04 |    NA   | {'F04', 'F02'} |
+| I05 |  Carter /Pewterschmidt/ |   M    | 1933-06-26 |  86 |  True |     NA     |    NA   | {'F06', 'F03'} |
+| I06 |   Barbara /Hebrewberg/  |   M    | 1935-03-18 |  85 |  True |     NA     |    NA   |    {'F03'}     |
+| I07 |     Stewie /Griffin/    |   F    | 2002-09-11 |  17 |  True |     NA     | {'F01'} |       NA       |
+| I09 |     Stewie /Griffin/    |   M    | 2002-09-11 |  17 |  True |     NA     | {'F01'} |       NA       |
+| I10 |       Carol /West/      |   F    | 1959-07-11 |  60 | False | 2020-04-17 | {'F03'} |    {'F05'}     |
+| I11 |       Adam /West/       |   F    | 1996-10-05 |  23 | False | 2020-04-17 |    NA   |    {'F05'}     |
+| I12 | Patrick /Pewterschmidt/ |   M    | 1955-08-22 |  64 |  True |     NA     | {'F03'} |       NA       |
+| I13 |       Robin /West/      |   F    | 2020-04-01 |  0  |  True |     NA     | {'F05'} |       NA       |
+| I14 |    Francis /Griffin/    |   M    | 1927-05-09 |  -6 | False | 1921-07-18 |    NA   |    {'F04'}     |
+| I15 |     Karen /Griffin/     |   F    | 1962-01-28 |  58 |  True |     NA     | {'F04'} |       NA       |
+| I16 |      Tom /Griffin/      |   M    | 2000-01-01 |  20 |  True |     NA     | {'F01'} |       NA       |
+| I17 |      Jack /Griffin/     |   M    | 2000-04-01 |  20 |  True |     NA     | {'F01'} |       NA       |
+| I18 |     Sally /Griffin/     |   F    | 2005-01-02 |  15 |  True |     NA     | {'F01'} |       NA       |
+| I19 |      Sue /Griffin/      |   F    | 2004-06-01 |  15 |  True |     NA     | {'F01'} |       NA       |
+| I20 |      Kim /Griffin/      |   F    | 2005-04-02 |  15 |  True |     NA     | {'F01'} |    {'F07'}     |
+| I21 |      Kyle /Griffin/     |   M    | 2008-07-03 |  11 |  True |     NA     | {'F01'} |    {'F07'}     |
+| I22 |     Oliver /Griffin/    |   M    | 2000-03-05 |  20 |  True |     NA     | {'F01'} |       NA       |
+| I23 |     Lizzy /Griffin/     |   F    | 2003-06-05 |  16 |  True |     NA     | {'F01'} |       NA       |
+| I24 |      Ryan /Griffin/     |   M    | 2001-04-02 |  19 |  True |     NA     | {'F01'} |       NA       |
+| I25 |      One /Griffin/      |   F    | 2008-08-04 |  11 |  True |     NA     | {'F01'} |       NA       |
+| I26 |      Lola /Griffin/     |   F    | 2009-06-03 |  10 |  True |     NA     | {'F01'} |       NA       |
+| I27 |     Frank /Griffin/     |   M    | 2009-06-03 |  10 |  True |     NA     | {'F01'} |       NA       |
+| I28 |    Griffin /Griffin/    |   M    | 2000-02-02 |  20 |  True |     NA     |    NA   |       NA       |
++-----+-------------------------+--------+------------+-----+-------+------------+---------+----------------+
+Families
++-----+------------+------------+------------+------------------------+---------+----------------------+-----------------------------------------------------------------------------------------------------------+
+|  ID |  Married   |  Divorced  | Husband ID |      Husband Name      | Wife ID |      Wife Name       |                                                  Children                                                 |
++-----+------------+------------+------------+------------------------+---------+----------------------+-----------------------------------------------------------------------------------------------------------+
+| F01 | 1993-05-14 |     NA     |    I01     |    Peter /Griffin/     |   I02   |    Lois /Griffin/    | {'I26', 'I28', 'I27', 'I25', 'I20', 'I18', 'I24', 'I16', 'I17', 'I09', 'I21', 'I19', 'I23', 'I22', 'I07'} |
+| F02 | 1959-06-07 | 2021-12-09 |    I03     |   Francis /Griffin/    |   I04   |   Thelma /Griffin/   |                                                  {'I01'}                                                  |
+| F03 | 1955-03-03 |     NA     |    I05     | Carter /Pewterschmidt/ |   I06   | Barbara /Hebrewberg/ |                                           {'I02', 'I10', 'I12'}                                           |
+| F04 | 1959-06-07 | 1954-01-19 |    I14     |   Francis /Griffin/    |   I04   |   Thelma /Griffin/   |                                                  {'I15'}                                                  |
+| F05 | 1996-04-19 |     NA     |    I11     |      Adam /West/       |   I10   |     Carol /West/     |                                                  {'I13'}                                                  |
+| F06 | 2020-04-17 |     NA     |    I05     | Carter /Pewterschmidt/ |   I02   |    Lois /Griffin/    |                                                                                                           |
+| F07 | 2020-04-17 |     NA     |    I21     |     Kyle /Griffin/     |   I20   |    Kim /Griffin/     |                                                                                                           |
++-----+------------+------------+------------+------------------------+---------+----------------------+-----------------------------------------------------------------------------------------------------------+
+
+ERROR: FAMILY: US01: F02: Divorce date occurs before the current date
+ERROR: FAMILY: US02: I01: Wife's birth date 1998-02-18 following marriage date 1993-05-14
+ERROR: FAMILY: US02: I11: Husband's birth date 1996-10-05 after marriage date 1996-04-19
+ERROR: FAMILY: US04: F04: Divorced 1954-01-19 before married 1959-06-07
+ERROR: FAMILY: US05: F04: Married 1959-06-07 after husband's (I14) death on 1921-07-18
+ERROR: FAMILY: US15: F01: Number of siblings in family exceeds 15
+ERROR: FAMILY: US17: F06: I05 is married to its child I02
+ERROR: FAMILY: US18: F07: I20 is married to its sibling I21
+ERROR: FAMILY: US18: F07: I21 is married to its sibling I20
+ERROR: FAMILY: US24: F02: More than one family with the same anniversary date and spouse names (1959-06-07 Francis /Griffin/ Thelma /Griffin/)
+ERROR: FAMILY: US24: F04: More than one family with the same anniversary date and spouse names (1959-06-07 Francis /Griffin/ Thelma /Griffin/)
+ERROR: INDIVIDUAL: US03: I14: Died 1921-07-18 before born 1927-05-09
+ERROR: INDIVIDUAL: US06: F02: Divorce occured after the death of both spouses
+ERROR: INDIVIDUAL: US21: I06: Incorrect role for wife in family F03
+ERROR: INDIVIDUAL: US21: I11: Incorrect role for husband in family F05
+ERROR: INDIVIDUAL: US22: I07: Multiple occurrences of individual's id
+ERROR: INDIVIDUAL: US23: I07: More than one individual with the same name and birth date (Stewie /Griffin/ 2002-09-11)
+ERROR: INDIVIDUAL: US23: I09: More than one individual with the same name and birth date (Stewie /Griffin/ 2002-09-11)
+US27: Include individual ages when listing:
++-----+-------------------------+--------+------------+-----+-------+------------+---------+----------------+
+|  ID |           Name          | Gender |  Birthday  | Age | Alive |   Death    |  Child  |     Spouse     |
++-----+-------------------------+--------+------------+-----+-------+------------+---------+----------------+
+| I01 |     Peter /Griffin/     |   M    | 1955-06-22 |  64 |  True |     NA     | {'F02'} |    {'F01'}     |
+| I02 |      Lois /Griffin/     |   F    | 1998-02-18 |  22 |  True |     NA     | {'F03'} | {'F06', 'F01'} |
+| I03 |    Francis /Griffin/    |   M    | 1933-09-03 |  83 | False | 2016-11-04 |    NA   |    {'F02'}     |
+| I04 |     Thelma /Griffin/    |   F    | 1935-02-14 |  82 | False | 2017-11-04 |    NA   | {'F04', 'F02'} |
+| I05 |  Carter /Pewterschmidt/ |   M    | 1933-06-26 |  86 |  True |     NA     |    NA   | {'F06', 'F03'} |
+| I06 |   Barbara /Hebrewberg/  |   M    | 1935-03-18 |  85 |  True |     NA     |    NA   |    {'F03'}     |
+| I07 |     Stewie /Griffin/    |   F    | 2002-09-11 |  17 |  True |     NA     | {'F01'} |       NA       |
+| I09 |     Stewie /Griffin/    |   M    | 2002-09-11 |  17 |  True |     NA     | {'F01'} |       NA       |
+| I10 |       Carol /West/      |   F    | 1959-07-11 |  60 | False | 2020-04-17 | {'F03'} |    {'F05'}     |
+| I11 |       Adam /West/       |   F    | 1996-10-05 |  23 | False | 2020-04-17 |    NA   |    {'F05'}     |
+| I12 | Patrick /Pewterschmidt/ |   M    | 1955-08-22 |  64 |  True |     NA     | {'F03'} |       NA       |
+| I13 |       Robin /West/      |   F    | 2020-04-01 |  0  |  True |     NA     | {'F05'} |       NA       |
+| I14 |    Francis /Griffin/    |   M    | 1927-05-09 |  -6 | False | 1921-07-18 |    NA   |    {'F04'}     |
+| I15 |     Karen /Griffin/     |   F    | 1962-01-28 |  58 |  True |     NA     | {'F04'} |       NA       |
+| I16 |      Tom /Griffin/      |   M    | 2000-01-01 |  20 |  True |     NA     | {'F01'} |       NA       |
+| I17 |      Jack /Griffin/     |   M    | 2000-04-01 |  20 |  True |     NA     | {'F01'} |       NA       |
+| I18 |     Sally /Griffin/     |   F    | 2005-01-02 |  15 |  True |     NA     | {'F01'} |       NA       |
+| I19 |      Sue /Griffin/      |   F    | 2004-06-01 |  15 |  True |     NA     | {'F01'} |       NA       |
+| I20 |      Kim /Griffin/      |   F    | 2005-04-02 |  15 |  True |     NA     | {'F01'} |    {'F07'}     |
+| I21 |      Kyle /Griffin/     |   M    | 2008-07-03 |  11 |  True |     NA     | {'F01'} |    {'F07'}     |
+| I22 |     Oliver /Griffin/    |   M    | 2000-03-05 |  20 |  True |     NA     | {'F01'} |       NA       |
+| I23 |     Lizzy /Griffin/     |   F    | 2003-06-05 |  16 |  True |     NA     | {'F01'} |       NA       |
+| I24 |      Ryan /Griffin/     |   M    | 2001-04-02 |  19 |  True |     NA     | {'F01'} |       NA       |
+| I25 |      One /Griffin/      |   F    | 2008-08-04 |  11 |  True |     NA     | {'F01'} |       NA       |
+| I26 |      Lola /Griffin/     |   F    | 2009-06-03 |  10 |  True |     NA     | {'F01'} |       NA       |
+| I27 |     Frank /Griffin/     |   M    | 2009-06-03 |  10 |  True |     NA     | {'F01'} |       NA       |
+| I28 |    Griffin /Griffin/    |   M    | 2000-02-02 |  20 |  True |     NA     |    NA   |       NA       |
++-----+-------------------------+--------+------------+-----+-------+------------+---------+----------------+
+US28: Order siblings by age:
++-----------+-------------------------+-----+
+| Family ID |           Name          | Age |
++-----------+-------------------------+-----+
+|    F01    |      Tom /Griffin/      |  20 |
+|    F01    |    Griffin /Griffin/    |  20 |
+|    F01    |     Oliver /Griffin/    |  20 |
+|    F01    |      Jack /Griffin/     |  20 |
+|    F01    |      Ryan /Griffin/     |  19 |
+|    F01    |     Stewie /Griffin/    |  17 |
+|    F01    |     Stewie /Griffin/    |  17 |
+|    F01    |     Lizzy /Griffin/     |  16 |
+|    F01    |     Sally /Griffin/     |  15 |
+|    F01    |      Sue /Griffin/      |  15 |
+|    F01    |      Kim /Griffin/      |  15 |
+|    F01    |      Kyle /Griffin/     |  11 |
+|    F01    |      One /Griffin/      |  11 |
+|    F01    |      Lola /Griffin/     |  10 |
+|    F01    |     Frank /Griffin/     |  10 |
+|    F02    |     Peter /Griffin/     |  64 |
+|    F04    |     Karen /Griffin/     |  58 |
+|    F03    | Patrick /Pewterschmidt/ |  64 |
+|    F03    |       Carol /West/      |  60 |
+|    F03    |      Lois /Griffin/     |  22 |
+|    F05    |       Robin /West/      |  0  |
++-----------+-------------------------+-----+
++-----------+-------------------------+-----+
+| Family ID |           Name          | Age |
++-----------+-------------------------+-----+
+|    F01    |      Tom /Griffin/      |  20 |
+|    F01    |    Griffin /Griffin/    |  20 |
+|    F01    |     Oliver /Griffin/    |  20 |
+|    F01    |      Jack /Griffin/     |  20 |
+|    F01    |      Ryan /Griffin/     |  19 |
+|    F01    |     Stewie /Griffin/    |  17 |
+|    F01    |     Stewie /Griffin/    |  17 |
+|    F01    |     Lizzy /Griffin/     |  16 |
+|    F01    |     Sally /Griffin/     |  15 |
+|    F01    |      Sue /Griffin/      |  15 |
+|    F01    |      Kim /Griffin/      |  15 |
+|    F01    |      Kyle /Griffin/     |  11 |
+|    F01    |      One /Griffin/      |  11 |
+|    F01    |      Lola /Griffin/     |  10 |
+|    F01    |     Frank /Griffin/     |  10 |
+|    F02    |     Peter /Griffin/     |  64 |
+|    F04    |     Karen /Griffin/     |  58 |
+|    F03    | Patrick /Pewterschmidt/ |  64 |
+|    F03    |       Carol /West/      |  60 |
+|    F03    |      Lois /Griffin/     |  22 |
+|    F05    |       Robin /West/      |  0  |
++-----------+-------------------------+-----+
+US29: List of deceased individuals:
++-----+-------------------+------------+-----+------------+
+|  ID |        Name       |  Birthday  | Age |   Death    |
++-----+-------------------+------------+-----+------------+
+| I03 | Francis /Griffin/ | 1933-09-03 |  83 | 2016-11-04 |
+| I04 |  Thelma /Griffin/ | 1935-02-14 |  82 | 2017-11-04 |
+| I10 |    Carol /West/   | 1959-07-11 |  60 | 2020-04-17 |
+| I11 |    Adam /West/    | 1996-10-05 |  23 | 2020-04-17 |
+| I14 | Francis /Griffin/ | 1927-05-09 |  -6 | 1921-07-18 |
++-----+-------------------+------------+-----+------------+
+US30: List of living married individuals:
++-----------+----------------------+------------------------+---------------+
+| Family ID |         Wife         |        Husband         | Marriage Date |
++-----------+----------------------+------------------------+---------------+
+|    F01    |    Lois /Griffin/    |    Peter /Griffin/     |   1993-05-14  |
+|    F03    | Barbara /Hebrewberg/ | Carter /Pewterschmidt/ |   1955-03-03  |
+|    F06    |    Lois /Griffin/    | Carter /Pewterschmidt/ |   2020-04-17  |
+|    F07    |    Kim /Griffin/     |     Kyle /Griffin/     |   2020-04-17  |
++-----------+----------------------+------------------------+---------------+
+US31: List of living single individuals:
++---------------+-------------------------+-----+
+| Individual ID |           Name          | Age |
++---------------+-------------------------+-----+
+|      I12      | Patrick /Pewterschmidt/ |  64 |
+|      I15      |     Karen /Griffin/     |  58 |
++---------------+-------------------------+-----+
+US32: List multiple births:
++-----------+------------------+------------+
+| Family ID |       Name       |  Birthday  |
++-----------+------------------+------------+
+|    F01    | Stewie /Griffin/ | 2002-09-11 |
+|    F01    | Stewie /Griffin/ | 2002-09-11 |
+|    F01    | Frank /Griffin/  | 2009-06-03 |
+|    F01    |  Lola /Griffin/  | 2009-06-03 |
++-----------+------------------+------------+
+US33: List of orphaned children:
++---------------+--------------+-----+
+| Individual ID |     Name     | Age |
++---------------+--------------+-----+
+|      I13      | Robin /West/ |  0  |
++---------------+--------------+-----+
+US35: List of recently born individuals:
++---------------+--------------+------------+
+| Individual ID |     Name     |  Birthday  |
++---------------+--------------+------------+
+|      I13      | Robin /West/ | 2020-04-01 |
++---------------+--------------+------------+
+US36: List of recently deceased individuals:
++---------------+--------------+------------+
+| Individual ID |     Name     |  Birthday  |
++---------------+--------------+------------+
+|      I10      | Carol /West/ | 2020-04-17 |
+|      I11      | Adam /West/  | 2020-04-17 |
++---------------+--------------+------------+
+US38: List of upcoming birthdays:
++---------------+-------------------+------------+
+| Individual ID |        Name       |  Birthday  |
++---------------+-------------------+------------+
+|      I14      | Francis /Griffin/ | 1927-05-09 |
++---------------+-------------------+------------+
+US39: List of upcoming anniversaries:
++-----------+-----------------+----------------+-------------+
+| Family ID |   Husband Name  |   Wife Name    | Anniversary |
++-----------+-----------------+----------------+-------------+
+|    F01    | Peter /Griffin/ | Lois /Griffin/ |  1993-05-14 |
++-----------+-----------------+----------------+-------------+

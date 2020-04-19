@@ -1,0 +1,171 @@
+0 HEAD
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE us28_01
+1 DATE 18 APR 2020
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME Asif Uddin
+1 SUBN
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Gia /Pollard/
+2 GIVN Gia
+2 SURN Pollard
+2 _MARNM Pollard
+1 SEX F
+1 BIRT
+2 DATE 6 NOV 2021
+1 FAMC @F1@
+0 @I2@ INDI
+1 NAME Rudi /Anthony/
+2 GIVN Rudi
+2 SURN Anthony
+2 _MARNM Anthony
+1 SEX M
+1 BIRT
+2 DATE 6 JUN 1975
+1 FAMS @F1@
+1 FAMS @F4@
+0 @I3@ INDI
+1 NAME Autumn /Melton/
+2 GIVN Autumn
+2 SURN Melton
+2 _MARNM Melton
+1 SEX F
+1 BIRT
+2 DATE 6 JUN 1977
+1 FAMS @F1@
+1 FAMC @F2@
+0 @I4@ INDI
+1 NAME Tea /Pollard/
+2 GIVN Tea
+2 SURN Pollard
+2 _MARNM Pollard
+1 SEX F
+1 BIRT
+2 DATE 7 MAY 1997
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME TJ /Pollard/
+2 GIVN TJ
+2 SURN Pollard
+2 _MARNM Pollard
+1 SEX M
+1 BIRT
+2 DATE 6 APR 2000
+1 FAMS @F3@
+1 FAMC @F1@
+0 @I6@ INDI
+1 NAME Jess /Daniel/
+2 GIVN Jess
+2 SURN Daniel
+2 _MARNM Daniel
+1 SEX F
+1 BIRT
+2 DATE 7 APR 2003
+1 FAMS @F3@
+0 @I7@ INDI
+1 NAME Zaina /Conolly/
+2 GIVN Zaina
+2 SURN Conolly
+2 _MARNM Conolly
+1 SEX F
+1 BIRT
+2 DATE 5 JUL 2020
+1 FAMC @F3@
+0 @I8@ INDI
+1 NAME Huw /Conolly/
+2 GIVN Huw
+2 SURN Conolly
+2 _MARNM Conolly
+1 SEX M
+1 BIRT
+2 DATE 6 NOV 2019
+1 FAMC @F3@
+0 @I9@ INDI
+1 NAME Marlene /Lynch/
+2 GIVN Marlene
+2 SURN Lynch
+2 _MARNM Lynch
+1 SEX F
+1 BIRT
+2 DATE 8 APR 1984
+1 FAMC @F4@
+0 @I10@ INDI
+1 NAME Cosmo /Milington/
+2 GIVN Cosmo
+2 SURN Milington
+2 _MARNM Milington
+1 SEX M
+1 BIRT
+2 DATE 6 MAR 1948
+1 FAMS @F2@
+0 @I11@ INDI
+1 NAME Amerrah /Goff/
+2 GIVN Amerrah
+2 SURN Goff
+2 _MARNM Goff
+1 SEX F
+1 BIRT
+2 DATE 7 APR 1950
+1 FAMS @F2@
+0 @I12@ INDI
+1 NAME Courtney /Berg/
+2 GIVN Courtney
+2 SURN Berg
+2 _MARNM Berg
+1 SEX F
+1 BIRT
+2 DATE 6 JUN 1968
+1 FAMS @F5@
+1 FAMC @F2@
+0 @I13@ INDI
+1 NAME Troy /Zimmerman/
+2 GIVN Troy
+2 SURN Zimmerman
+2 _MARNM Zimmerman
+1 SEX M
+1 BIRT
+2 DATE 4 AUG 1969
+1 FAMS @F5@
+0 @I14@ INDI
+1 NAME Nathalie /Felix/
+2 GIVN Nathalie
+2 SURN Felix
+2 _MARNM Felix
+1 SEX F
+1 BIRT
+2 DATE 9 JUL 1995
+1 FAMC @F5@
+0 @F1@ FAM
+1 HUSB @I2@
+1 WIFE @I3@
+1 CHIL @I1@
+1 CHIL @I4@
+1 CHIL @I5@
+1 _CURRENT Y
+0 @F2@ FAM
+1 HUSB @I10@
+1 WIFE @I11@
+1 CHIL @I3@
+1 CHIL @I12@
+1 _CURRENT Y
+0 @F3@ FAM
+1 HUSB @I5@
+1 WIFE @I6@
+1 CHIL @I7@
+1 CHIL @I8@
+1 _CURRENT Y
+0 @F4@ FAM
+1 HUSB @I2@
+1 CHIL @I9@
+0 @F5@ FAM
+1 HUSB @I13@
+1 WIFE @I12@
+1 CHIL @I14@
+1 _CURRENT Y
+0 TRLR

@@ -9,15 +9,15 @@ from prettytable import PrettyTable
     Given all the individuals in the family, list all living married individuals
 '''
 
-def print_married(col):
+def print_married(col, print_table=True):
     t = PrettyTable()
     t.field_names = ["Family ID", "Wife", "Husband", "Marriage Date"]
     for married_id in sorted(col):
         t.add_row(col[married_id])
-    print(t)
+    if print_table: print(t)
     return t.get_string()
 
-def listmarried(indivs, fams):
+def listmarried(indivs, fams, print_table):
     married = {}
     for fam_id in fams:
         if (fams[fam_id][1] != "NA") and (fams[fam_id][2] == "NA"): #married(1) and not divorced(2)
@@ -29,4 +29,4 @@ def listmarried(indivs, fams):
                 married[fam_id][1] = fams[fam_id][6] #wife name
                 married[fam_id][2] = fams[fam_id][4] #husb name
                 married[fam_id][3] = fams[fam_id][1] #marriage date
-    return print_married(married)
+    return print_married(married, print_table)

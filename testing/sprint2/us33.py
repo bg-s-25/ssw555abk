@@ -9,15 +9,15 @@ from prettytable import PrettyTable
     Given all the individuals in the family, list all orphaned children(under 18)
 '''
 
-def print_orphaned(col):
+def print_orphaned(col, print_table=True):
     t = PrettyTable()
     t.field_names = ["Individual ID", "Name", "Age"]
     for child_id in sorted(col):
         t.add_row(col[child_id])
-    print(t)
+    if print_table: print(t)
     return t.get_string()    
 
-def listorphaned(indivs, fams):
+def listorphaned(indivs, fams, print_table):
     orphaned = {}
     for fam_id in fams:
         if (fams[fam_id][7] != "NA"):   #ensures they have children
@@ -32,4 +32,4 @@ def listorphaned(indivs, fams):
                         orphaned[child_id][0] = child_id #id
                         orphaned[child_id][1] = indivs[child_id][1] #name
                         orphaned[child_id][2] = main_parser.age(indivs[child_id][3], indivs[child_id][6]) #age
-    return print_orphaned(orphaned)
+    return print_orphaned(orphaned, print_table)

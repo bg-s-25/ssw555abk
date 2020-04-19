@@ -1,0 +1,13 @@
++-----------+------------------------+-----+
+| Family ID |          Name          | Age |
++-----------+------------------------+-----+
+|     F1    |  Mohammed /Underwood/  |  39 |
+|     F1    |  Yasmine /Underwood/   |  38 |
+|     F2    | Emmanuella /Rodriquez/ |  49 |
+|     F2    |       Joss /Day/       |  43 |
+|     F3    |   Aamina /McPherson/   |  19 |
+|     F3    |  Shakira /McPherson/   |  18 |
+|     F3    |    Arun /McPherson/    |  18 |
+|     F3    |    Una /McPherson/     |  17 |
+|     F3    |    Joss /McPherson/    |  13 |
++-----------+------------------------+-----+
