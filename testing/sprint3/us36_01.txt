@@ -1,5 +1,5 @@
 +---------------+-------------------------+------------+
-| Individual ID |           Name          |  Birthday  |
+| Individual ID |           Name          | Death Date |
 +---------------+-------------------------+------------+
 |      I13      | Patrick /Pewterschmidt/ | 2020-03-25 |
 |       I6      |  Carter /Pewterschmidt/ | 2020-03-20 |

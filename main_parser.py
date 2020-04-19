@@ -267,7 +267,7 @@ if __name__ == '__main__':
         indivs, fams, indivsLst, famsLst = collections
         print('US27: Include individual ages when listing:')
         print(us27.indiv_prettytable(indivs))
-        print('US28: Order siblings by age')
+        print('US28: Order siblings by age:')
         print(us28.list_siblings(indivs, fams, print_table=True))
         print('US29: List of deceased individuals:')
         us29.listdeceased(indivs, print_table=True)
