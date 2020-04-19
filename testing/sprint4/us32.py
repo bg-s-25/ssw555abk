@@ -22,7 +22,8 @@ def print_siblings(dict,print_table):
 def list_multiple_births(indivs, families, print_table):
     multiple_births = {}
     for fam_id in families:
-        children = sorted(list(families[fam_id][7]))
+        # you need to make it into a sorted list to get a single correct solution every time
+        children = sorted(list(families[fam_id][7])) 
         i = 0
         while (len(children) > 0 and i < len(children)):
             flag = False

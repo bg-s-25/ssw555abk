@@ -11,7 +11,7 @@ from prettytable import PrettyTable
 
 def print_siblings(dict,print_table):
     t = PrettyTable()
-    t.field_names = ["Individual ID", "Family ID", "Age Difference"]
+    t.field_names = ["Family ID", "Name", "Age"]
     for indiv_id in dict:
         t.add_row(dict[indiv_id])
     if print_table: print(t)
@@ -52,23 +52,36 @@ def age(birth_date, death_date='NA'):
     day_diff = day2 - day1
     mon_diff = mon2 - mon1
     year_diff = year2 - year1
-    return "{}-{}-{}".format(year_diff,mon_diff,day_diff)
+    return [year_diff,"{}-{}-{}".format(year_diff,mon_diff,day_diff)]
+
+def sort_people(birthdates):
+    for i in range(1,len(birthdates)):
+        current = birthdates[i]
+        k = i - 1
+        while (k >= 0 and birthdates[k][3] < current[3]):
+            birthdates[k+1]=birthdates[k]
+            k -= 1
+        birthdates[k+1] = current
 
 def list_siblings(indivs, families, print_table):
-    multiple_births = {}
+    sibling_order = []
     for fam_id in families:
         birthdates = []
+        children = sorted(list(families[fam_id][7]))
         for child in families[fam_id][7]:
             birth_date = indivs[child][3]
             death_date = indivs[child][6]
-            birthdates += [[child,age(birth_date,death_date)]]
-        sorted(birthdates, key=lambda x: x[1], reverse=True)
-        for i in range(len(birthdates)):
-            multiple_births[birthdates[i][0]] = [''] * 3
-            multiple_births[birthdates[i][0]][0] = birthdates[i][0] #individual_id
-            multiple_births[birthdates[i][0]][1] = fam_id # age difference
-            multiple_births[birthdates[i][0]][2] = birthdates[i][1] # family id
-    return print_siblings(multiple_births,print_table)
+            age_diff = age(birth_date,death_date)
+            birthdates += [[fam_id] + [indivs[child][1]] + age_diff]
+        # Uncomment this line for descending order of siblings in EACH family
+        sort_people(birthdates)
+        sibling_order += birthdates
+    # Uncomment this line for descending order of siblings in ALL family
+    # sort_people(sibling_order)
+    sibling = {}
+    for i in range(len(sibling_order)):
+        sibling[i] = sibling_order[i][:3] 
+    return print_siblings(sibling,print_table)
 
 
         

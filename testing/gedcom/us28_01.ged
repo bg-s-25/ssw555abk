@@ -2,7 +2,7 @@
 1 SOUR Family Echo
 2 WWW http://www.familyecho.com/
 1 FILE us28_01
-1 DATE 15 APR 2020
+1 DATE 18 APR 2020
 1 DEST ANSTFILE
 1 GEDC
 2 VERS 5.5.1
@@ -83,6 +83,8 @@
 2 SURN Conolly
 2 _MARNM Conolly
 1 SEX M
+1 BIRT
+2 DATE 6 NOV 2019
 1 FAMC @F3@
 0 @I9@ INDI
 1 NAME Marlene /Lynch/
